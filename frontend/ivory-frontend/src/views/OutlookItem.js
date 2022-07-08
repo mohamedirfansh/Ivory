@@ -1,4 +1,5 @@
 import { Form, Button, OverlayTrigger, Tooltip, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import OutlookEvent from "./OutlookEvent";
 
 const OutLookItem = (props) => {
@@ -53,9 +54,29 @@ const OutLookItem = (props) => {
                         <i className="fas fa-edit"></i>
                     </Button>
                     </OverlayTrigger>
+
                     <OverlayTrigger
                     overlay={
-                        <Tooltip id="tooltip-506045838">Remove</Tooltip>
+                        <Tooltip id="tooltip-notes">Notes</Tooltip>
+                    }
+                    >
+                    <Link to={{
+                        pathname: "/admin/note", 
+                        state: { id: props.id }
+                    }}>
+                    <Button
+                        className="btn-simple btn-link p-1"
+                        type="button"
+                        variant="secondary"
+                    >
+                        <i className="fas fa-book"></i>
+                    </Button>
+                    </Link>
+                    </OverlayTrigger>
+
+                    <OverlayTrigger
+                    overlay={
+                        <Tooltip id="tooltip-delete">Remove</Tooltip>
                     }
                     >
                     <Button

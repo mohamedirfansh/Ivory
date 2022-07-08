@@ -28,15 +28,15 @@ function Sidebar({ color, image, routes }) {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
   };
   return (
-    <div className="sidebar" data-image={image} data-color={color}>
+    <div className="sidebar" style={{ "width": "15%", "display": "flex", padding: 0, margin: 0}} data-image={image} data-color={color}>
       <div
         className="sidebar-background"
         style={{
           backgroundImage: "url(" + image + ")"
         }}
       />
-      <div className="sidebar-wrapper">
-        <div className="logo d-flex align-items-center justify-content-start">
+      <div className="sidebar-wrapper" style={{padding: 0, margin: 0}}>
+        <div className="logo d-flex align-items-center justify-content-start" style={{padding: 0, marginRight: 0}}>
           <a
             href="https://www.creative-tim.com?ref=lbd-sidebar"
             className="simple-text logo-mini mx-1"
@@ -65,6 +65,7 @@ function Sidebar({ color, image, routes }) {
                     to={prop.layout + prop.path}
                     className="nav-link"
                     activeClassName="active"
+                    style={{"padding-right": 0, "padding-left": 5, margin: 5, marginRight: 0, marginLeft: 0}}
                   >
                     <i className={prop.icon} />
                     <p>{prop.name}</p>

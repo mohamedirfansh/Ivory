@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card, Table } from "react-bootstrap";
 
-import { event1 } from "./defaultEvent";
+import { event1 } from "./defaultEvents";
 import OutlookEvent from "./OutlookEvent";
 
 import OutLookItem from "./OutlookItem";
@@ -14,6 +14,7 @@ const OutlookCard = (props) => {
     useEffect(() => {
         // initialise lines on start
         // set up connections to APIs
+        
         setOutLookLines((prev) => [defaultEvent])
     }, [setOutLookLines]);
     return (

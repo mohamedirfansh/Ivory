@@ -16,12 +16,12 @@
 
 */
 import Dashboard from "views/Dashboard.js";
-import UserProfile from "views/UserProfile.js";
-import Notetaking from "views/Notetaking";
+import Note from "views/Note";
 import Typography from "views/Typography.js";
 import Icons from "views/Icons.js";
 import Maps from "views/Maps.js";
 import Notifications from "views/Notifications.js";
+import DashboardPersonnal from "views/DashboardPersonnal";
 // import Upgrade from "views/Upgrade.js";
 
 const dashboardRoutes = [
@@ -35,23 +35,23 @@ const dashboardRoutes = [
   // },
   {
     path: "/dashboard",
-    name: "Ivory",
+    name: "Work",
     icon: "nc-icon nc-chart-pie-35",
     component: Dashboard,
     layout: "/admin"
   },
   {
-    path: "/user",
-    name: "User Profile",
+    path: "/dashboardPersonnal",
+    name: "Personal",
     icon: "nc-icon nc-circle-09",
-    component: UserProfile,
+    component: DashboardPersonnal,
     layout: "/admin"
   },
   {
-    path: "/notetaking",
-    name: "Notetaking",
+    path: "/note",
+    name: "Note",
     icon: "nc-icon nc-notes",
-    component: Notetaking,
+    component: Note,
     layout: "/admin"
   },
   {
