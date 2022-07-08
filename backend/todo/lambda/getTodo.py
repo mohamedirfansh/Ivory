@@ -87,7 +87,12 @@ class RequestResponseProcessor:
                 "statusCode": 200,
                 "body": json.dumps({
                     "todo": todo
-                })
+                }),
+                "headers": {
+                    "Access-Control-Allow-Headers": "Content-Type",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+                }
             }
 
         except Exception as e:

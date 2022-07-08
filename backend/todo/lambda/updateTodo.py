@@ -46,7 +46,12 @@ class RequestResponseProcessor:
         self.update()
         return {
             "statusCode": 200,
-            "body": json.dumps("Success")
+            "body": json.dumps("Success"),
+            "headers": {
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+            }
         }
 
     def validateRequest(self):

@@ -91,7 +91,12 @@ class RequestResponseProcessor:
                 "statusCode": 200,
                 "body": json.dumps({
                     "todos": pending_todos
-                })
+                }),
+                "headers": {
+                    "Access-Control-Allow-Headers": "Content-Type",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+                }
             }
 
         except Exception as e:
