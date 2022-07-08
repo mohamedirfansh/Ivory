@@ -49,7 +49,6 @@ const TaskItem = (props) => {
                     </Button>
                     </OverlayTrigger>
             </td>
-
         </tr>
     );
 }

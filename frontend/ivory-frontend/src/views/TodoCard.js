@@ -30,6 +30,7 @@ const TodoCard = (props) => {
     const createTodo = (e) => {
         e.preventDefault();
         // const formData = new FormData(e.target);
+        handleClose();
         let data = {
             "userEmail": USER_EMAIL,
             "title": title,
@@ -50,6 +51,7 @@ const TodoCard = (props) => {
             }
         })
     }
+
     useEffect(() => {
         // init
         initTodos();
@@ -128,7 +130,7 @@ const TodoCard = (props) => {
                 <Table>
                 <tbody>
                     {
-                        todos.map(todo => (<TodoItem {...todo} key={todo.id}/>))
+                        todos.map(todo => (<TodoItem {...todo} key={todo.id} endpoint={TODO_ENDPOINT} refreshHandle={initTodos}/>))
                     }
                 </tbody>
                 </Table>
@@ -136,10 +138,12 @@ const TodoCard = (props) => {
             </Card.Body>
             <Card.Footer>
             <hr></hr>
+            {/* <Button>
             <div className="stats">
                 <i className="now-ui-icons loader_refresh spin"></i>
                 Refresh
             </div>
+            </Button> */}
             </Card.Footer>
         </Card>
 
