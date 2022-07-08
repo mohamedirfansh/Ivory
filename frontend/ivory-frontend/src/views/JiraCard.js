@@ -2,13 +2,23 @@ import { useEffect, useState } from "react";
 import { Card, Table } from "react-bootstrap";
 import JiraItem from "./JiraItem";
 
+import { USER_EMAIL } from "./constants";
+
+const JIRA_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/jira/";
+
 const JiraCard = (props) => {
     const [jiraItems, setJiraItems] = useState([]);
 
     useEffect(() => {
         // init
-        setJiraItems(prev => ["JIRA 1", "JIRA 2"]);
+        fetch(JIRA_ENDPOINT + "?" + new URLSearchParams(
+            {
+                "userEmail": USER_EMAIL
+            }
+        )).then(response => response.json())
+          .then(result => setJiraItems(result.issues));
     }, [setJiraItems]);
+    
     return (
         <Card className="card-jira">
             <Card.Header>
