@@ -16,11 +16,11 @@ def lambda_handler(event, context):
         }
     )
 
-    print(response['Item'])
+    print(response['Items'])
     
     return {
         'statusCode': 200,
-        'body': json.dumps(response['Item']),
+        'body': json.dumps(response['Items']),
         'headers': {
             'Access-Control-Allow-Headers': 'Content-Type',
             'Access-Control-Allow-Origin': '*',
