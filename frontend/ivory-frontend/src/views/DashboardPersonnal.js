@@ -4,38 +4,29 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 // react-bootstrap components
 import {
-  Badge,
-  Button,
-  Card,
-  Navbar,
-  Nav,
-  Table,
   Container,
   Row,
-  Col,
-  Form,
-  OverlayTrigger,
-  Tooltip,
+  Col
 } from "react-bootstrap";
-import OutlookCard from "./OutlookCard";
-import EmailCard from "./EmailCard";
-import NotInOffice from "./NotInOffice";
+import TaskCard from "./TaskCard";
+import JiraCard from "./JiraCard";
+import TodoCard from "./TodoCard";
 
-function Dashboard() {
+function DashboardPersonnal() {
   return (
     <>
       <Container fluid>
         <Row>
           <Col xs={4}>
-            <OutlookCard/>
+            <TodoCard/>
           </Col>
 
-          <Col xs={5}>
-            <EmailCard/>
+          <Col xs={4}>
+            <JiraCard/>
           </Col>
 
-          <Col xs={3}>
-            <NotInOffice/>
+          <Col xs={4}>
+            <TaskCard/>
           </Col>
   
         </Row>
@@ -44,4 +35,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default DashboardPersonnal;

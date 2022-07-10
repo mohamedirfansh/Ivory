@@ -5,7 +5,6 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import {Recorder} from 'react-voice-recorder'
 import 'react-voice-recorder/dist/index.css'
 
-const NOTES_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/notes";
 
 // react-bootstrap components
 import {
@@ -25,6 +24,7 @@ import {
 import { CardText } from "reactstrap";
 
 const Notetaking = () => {
+
     const [audioData, setAudioData] = useState({
         url: null,
         blob: null,

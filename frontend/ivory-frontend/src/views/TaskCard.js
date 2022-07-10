@@ -13,7 +13,7 @@ const TaskCard = (props) => {
     return (
         <Card className="card-tasks">
             <Card.Header>
-                <Card.Title as="h4">Tasks</Card.Title>
+                <Card.Title as="h4">eTasks</Card.Title>
                 {/* <p className="card-category">Backend development</p> */}
             </Card.Header>
             <Card.Body>
