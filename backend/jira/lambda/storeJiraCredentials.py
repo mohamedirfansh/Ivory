@@ -28,7 +28,7 @@ class RequestResponseProcessor:
         self._validatedRequest = {}
         self._regex = {
             "userEmail": r"^[a-zA-Z0-9.-_]{0,128}@[a-zA-Z0-9.-_]{0,127}$",
-            "jiraServer": r"^[a-zA-Z0-9/:-_]{0,256}.atlassian.net[/]{0,1}$",
+            "jiraServer": r"^[a-zA-Z0-9/:-]{0,256}.atlassian.net[/]{0,1}$",
             "jiraEmail": r"^[a-zA-Z0-9.-_]{0,128}@[a-zA-Z0-9.-_]{0,127}$",
             "jiraApiToken": r"^[\S]{0,256}$"
         }

@@ -40,10 +40,10 @@ class RequestResponseProcessor:
         return {
             "statusCode": 200,
             "body": json.dumps("Success"),
-            "headers": {
-                "Access-Control-Allow-Headers": "Content-Type",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+            'headers': {
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'DELETE,OPTIONS,POST,GET'
             }
         }
 
