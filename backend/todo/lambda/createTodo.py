@@ -25,7 +25,7 @@ class RequestResponseProcessor:
         self._unvalidatedRequest = json.loads(event["body"])
         self._validatedRequest = {}
         self._regex = {
-            "userEmail": r"^[ a-zA-Z0-9]{0,154}@[ a-zA-Z0-9]{0,50}.[ a-zA-Z0-9]{0,50}$",
+            "userEmail": r"^[ a-zA-Z0-9]{0,128}@[ a-zA-Z0-9]{0,127}$",
             "title": r"^[ a-zA-Z0-9]{0,256}$",
             "description": r"^[ a-zA-Z0-9]{0,256}$",
             "deadline": r"^[0-9]{2}/[0-9]{2}/[0-9]{4}$",
@@ -45,10 +45,10 @@ class RequestResponseProcessor:
         return {
             "statusCode": 200,
             "body": json.dumps("Success"),
-            "headers": {
-                "Access-Control-Allow-Headers": "Content-Type",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+            'headers': {
+                'Access-Control-Allow-Headers': 'Content-Type',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'DELETE,OPTIONS,POST,GET'
             }
         }
 

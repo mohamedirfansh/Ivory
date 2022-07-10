@@ -1,0 +1,654 @@
+[
+  {
+    "@odata.etag": "W/\"XE2rz9z0AU2w7/hcEBmh3QAAAAAkyw==\"",
+    "id": "AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgENAAAAXE2rz9z0AU2w7-hcEBmh3QAAAhUKAAAA",
+    "createdDateTime": "2022-07-08T09:40:34.684759Z",
+    "lastModifiedDateTime": "2022-07-08T11:08:53.00072Z",
+    "changeKey": "XE2rz9z0AU2w7/hcEBmh3QAAAAAkyw==",
+    "categories": [],
+    "transactionId": null,
+    "originalStartTimeZone": "Singapore Standard Time",
+    "originalEndTimeZone": "Singapore Standard Time",
+    "iCalUId": "040000008200E00074C5B7101A82E0080000000053C4DDBFAE92D8010000000000000000100000001B72E9670C98D64DA8C0CC6840CB78BA",
+    "reminderMinutesBeforeStart": 15,
+    "isReminderOn": true,
+    "hasAttachments": false,
+    "subject": "test9",
+    "bodyPreview": "",
+    "importance": "normal",
+    "sensitivity": "normal",
+    "isAllDay": false,
+    "isCancelled": false,
+    "isOrganizer": false,
+    "responseRequested": true,
+    "seriesMasterId": null,
+    "showAs": "busy",
+    "type": "singleInstance",
+    "webLink": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q%2FhrOYZSAcAXE2rz9z0AU2w7%2FhcEBmh3QAAAgENAAAAXE2rz9z0AU2w7%2FhcEBmh3QAAAhUKAAAA&exvsurl=1&path=/calendar/item",
+    "onlineMeetingUrl": null,
+    "isOnlineMeeting": false,
+    "onlineMeetingProvider": "unknown",
+    "allowNewTimeProposals": true,
+    "occurrenceId": null,
+    "isDraft": false,
+    "hideAttendees": false,
+    "responseStatus": {
+      "response": "accepted",
+      "time": "2022-07-08T11:08:40.4391327Z"
+    },
+    "body": {
+      "contentType": "html",
+      "content": ""
+    },
+    "start": {
+      "dateTime": "2022-07-19T08:00:00.0000000",
+      "timeZone": "UTC"
+    },
+    "end": {
+      "dateTime": "2022-07-19T08:30:00.0000000",
+      "timeZone": "UTC"
+    },
+    "location": {
+      "displayName": "Block 412, Tampines Street 41, #08-271, Singapore 520412.",
+      "locationUri": "",
+      "locationType": "default",
+      "uniqueId": "Block 412, Tampines Street 41, #08-271, Singapore 520412.",
+      "uniqueIdType": "private",
+      "address": {
+        "street": "Block 412, Tampines Street 41, #08-271, Singapore 520412.",
+        "city": "",
+        "state": "",
+        "countryOrRegion": "",
+        "postalCode": ""
+      },
+      "coordinates": {}
+    },
+    "locations": [
+      {
+        "displayName": "Block 412, Tampines Street 41, #08-271, Singapore 520412.",
+        "locationUri": "",
+        "locationType": "default",
+        "uniqueId": "Block 412, Tampines Street 41, #08-271, Singapore 520412.",
+        "uniqueIdType": "private",
+        "address": {
+          "street": "Block 412, Tampines Street 41, #08-271, Singapore 520412.",
+          "city": "",
+          "state": "",
+          "countryOrRegion": "",
+          "postalCode": ""
+        },
+        "coordinates": {}
+      }
+    ],
+    "recurrence": null,
+    "attendees": [
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "Alvin Tay",
+          "address": "Alvin_Tay98@hotmail.com"
+        }
+      },
+      {
+        "type": "required",
+        "status": {
+          "response": "accepted",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "IvoryGS@outlook.com",
+          "address": "IvoryGS@outlook.com"
+        }
+      }
+    ],
+    "organizer": {
+      "emailAddress": {
+        "name": "Alvin Tay",
+        "address": "Alvin_Tay98@hotmail.com"
+      }
+    },
+    "onlineMeeting": null,
+    "calendar@odata.associationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')/$ref",
+    "calendar@odata.navigationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')"
+  },
+  {
+    "@odata.etag": "W/\"XE2rz9z0AU2w7/hcEBmh3QAAAAAihQ==\"",
+    "id": "AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgENAAAAXE2rz9z0AU2w7-hcEBmh3QAAAhUJAAAA",
+    "createdDateTime": "2022-07-08T09:15:38.7157757Z",
+    "lastModifiedDateTime": "2022-07-08T09:17:39.8162672Z",
+    "changeKey": "XE2rz9z0AU2w7/hcEBmh3QAAAAAihQ==",
+    "categories": [],
+    "transactionId": "a6ca8e66-e29b-4aad-15ac-2c0834d18e5c",
+    "originalStartTimeZone": "Singapore Standard Time",
+    "originalEndTimeZone": "Singapore Standard Time",
+    "iCalUId": "040000008200E00074C5B7101A82E0080000000056F3134AAB92D8010000000000000000100000001F5C8A954317AD4C81CFD6A3682BCE41",
+    "reminderMinutesBeforeStart": 15,
+    "isReminderOn": true,
+    "hasAttachments": false,
+    "subject": "Test7",
+    "bodyPreview": "",
+    "importance": "normal",
+    "sensitivity": "normal",
+    "isAllDay": false,
+    "isCancelled": false,
+    "isOrganizer": true,
+    "responseRequested": true,
+    "seriesMasterId": null,
+    "showAs": "busy",
+    "type": "singleInstance",
+    "webLink": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q%2FhrOYZSAcAXE2rz9z0AU2w7%2FhcEBmh3QAAAgENAAAAXE2rz9z0AU2w7%2FhcEBmh3QAAAhUJAAAA&exvsurl=1&path=/calendar/item",
+    "onlineMeetingUrl": null,
+    "isOnlineMeeting": false,
+    "onlineMeetingProvider": "unknown",
+    "allowNewTimeProposals": true,
+    "occurrenceId": null,
+    "isDraft": false,
+    "hideAttendees": false,
+    "responseStatus": {
+      "response": "organizer",
+      "time": "0001-01-01T00:00:00Z"
+    },
+    "body": {
+      "contentType": "html",
+      "content": ""
+    },
+    "start": {
+      "dateTime": "2022-07-20T01:00:00.0000000",
+      "timeZone": "UTC"
+    },
+    "end": {
+      "dateTime": "2022-07-20T01:30:00.0000000",
+      "timeZone": "UTC"
+    },
+    "location": {
+      "displayName": "ORL",
+      "locationType": "default",
+      "uniqueId": "ORL",
+      "uniqueIdType": "private"
+    },
+    "locations": [
+      {
+        "displayName": "ORL",
+        "locationType": "default",
+        "uniqueId": "ORL",
+        "uniqueIdType": "private"
+      }
+    ],
+    "recurrence": null,
+    "attendees": [
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "aks001@e.ntu.edu.sg",
+          "address": "aks001@e.ntu.edu.sg"
+        }
+      }
+    ],
+    "organizer": {
+      "emailAddress": {
+        "name": "IvoryGS@outlook.com",
+        "address": "IvoryGS@outlook.com"
+      }
+    },
+    "onlineMeeting": null,
+    "calendar@odata.associationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')/$ref",
+    "calendar@odata.navigationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')"
+  },
+  {
+    "@odata.etag": "W/\"XE2rz9z0AU2w7/hcEBmh3QAAAAAifw==\"",
+    "id": "AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgENAAAAXE2rz9z0AU2w7-hcEBmh3QAAAhUIAAAA",
+    "createdDateTime": "2022-07-08T09:14:34.1580055Z",
+    "lastModifiedDateTime": "2022-07-08T09:16:35.0085236Z",
+    "changeKey": "XE2rz9z0AU2w7/hcEBmh3QAAAAAifw==",
+    "categories": [],
+    "transactionId": "6817e9ce-a966-2f19-a0c5-7a25a09a799f",
+    "originalStartTimeZone": "Singapore Standard Time",
+    "originalEndTimeZone": "Singapore Standard Time",
+    "iCalUId": "040000008200E00074C5B7101A82E008000000005B379923AB92D801000000000000000010000000D70E4BA75581714DBA6035AFA32BCE9D",
+    "reminderMinutesBeforeStart": 15,
+    "isReminderOn": true,
+    "hasAttachments": false,
+    "subject": "Test6",
+    "bodyPreview": "",
+    "importance": "normal",
+    "sensitivity": "normal",
+    "isAllDay": false,
+    "isCancelled": false,
+    "isOrganizer": true,
+    "responseRequested": true,
+    "seriesMasterId": null,
+    "showAs": "busy",
+    "type": "singleInstance",
+    "webLink": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q%2FhrOYZSAcAXE2rz9z0AU2w7%2FhcEBmh3QAAAgENAAAAXE2rz9z0AU2w7%2FhcEBmh3QAAAhUIAAAA&exvsurl=1&path=/calendar/item",
+    "onlineMeetingUrl": null,
+    "isOnlineMeeting": false,
+    "onlineMeetingProvider": "unknown",
+    "allowNewTimeProposals": true,
+    "occurrenceId": null,
+    "isDraft": false,
+    "hideAttendees": false,
+    "responseStatus": {
+      "response": "organizer",
+      "time": "0001-01-01T00:00:00Z"
+    },
+    "body": {
+      "contentType": "html",
+      "content": ""
+    },
+    "start": {
+      "dateTime": "2022-07-20T00:00:00.0000000",
+      "timeZone": "UTC"
+    },
+    "end": {
+      "dateTime": "2022-07-20T00:30:00.0000000",
+      "timeZone": "UTC"
+    },
+    "location": {
+      "displayName": "MTA",
+      "locationType": "default",
+      "uniqueId": "MTA",
+      "uniqueIdType": "private"
+    },
+    "locations": [
+      {
+        "displayName": "MTA",
+        "locationType": "default",
+        "uniqueId": "MTA",
+        "uniqueIdType": "private"
+      }
+    ],
+    "recurrence": null,
+    "attendees": [],
+    "organizer": {
+      "emailAddress": {
+        "name": "IvoryGS@outlook.com",
+        "address": "IvoryGS@outlook.com"
+      }
+    },
+    "onlineMeeting": null,
+    "calendar@odata.associationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')/$ref",
+    "calendar@odata.navigationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')"
+  },
+  {
+    "@odata.etag": "W/\"XE2rz9z0AU2w7/hcEBmh3QAAAAAbYQ==\"",
+    "id": "AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgENAAAAXE2rz9z0AU2w7-hcEBmh3QAAAhUFAAAA",
+    "createdDateTime": "2022-07-08T03:57:35.077235Z",
+    "lastModifiedDateTime": "2022-07-08T03:59:36.0369473Z",
+    "changeKey": "XE2rz9z0AU2w7/hcEBmh3QAAAAAbYQ==",
+    "categories": [],
+    "transactionId": null,
+    "originalStartTimeZone": "Singapore Standard Time",
+    "originalEndTimeZone": "Singapore Standard Time",
+    "iCalUId": "040000008200E00074C5B7101A82E00800000000E91D50D37E92D801000000000000000010000000C4839D5B4715254AA6826CF3159600D5",
+    "reminderMinutesBeforeStart": 15,
+    "isReminderOn": true,
+    "hasAttachments": false,
+    "subject": "test4",
+    "bodyPreview": ".........................................................................................................................................\r\nJoin online meeting\r\n.............................................................................................",
+    "importance": "normal",
+    "sensitivity": "normal",
+    "isAllDay": false,
+    "isCancelled": false,
+    "isOrganizer": false,
+    "responseRequested": true,
+    "seriesMasterId": null,
+    "showAs": "busy",
+    "type": "singleInstance",
+    "webLink": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q%2FhrOYZSAcAXE2rz9z0AU2w7%2FhcEBmh3QAAAgENAAAAXE2rz9z0AU2w7%2FhcEBmh3QAAAhUFAAAA&exvsurl=1&path=/calendar/item",
+    "onlineMeetingUrl": "https://join.skype.com/vceqqszkiAGc",
+    "isOnlineMeeting": true,
+    "onlineMeetingProvider": "skypeForConsumer",
+    "allowNewTimeProposals": true,
+    "occurrenceId": null,
+    "isDraft": false,
+    "hideAttendees": false,
+    "responseStatus": {
+      "response": "accepted",
+      "time": "2022-07-08T03:57:47.0294755Z"
+    },
+    "body": {
+      "contentType": "html",
+      "content": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n</head>\r\n<body>\r\n<br>\r\n<font face=\"Calibri\" size=\"1\" color=\"#404040\"><span style=\"\">.........................................................................................................................................</span></font><br>\r\n<font face=\"Calibri\" size=\"4\"><span style=\"font-size:16pt\"><a href=\"https://join.skype.com/vceqqszkiAGc\">Join online meeting</a></span></font><br>\r\n<font face=\"Calibri\" size=\"1\" color=\"#404040\"><span style=\"font-size:8pt\">.........................................................................................................................................</span></font><br>\r\n</body>\r\n</html>\r\n"
+    },
+    "start": {
+      "dateTime": "2022-07-17T08:00:00.0000000",
+      "timeZone": "UTC"
+    },
+    "end": {
+      "dateTime": "2022-07-17T08:30:00.0000000",
+      "timeZone": "UTC"
+    },
+    "location": {
+      "displayName": "",
+      "locationType": "default",
+      "uniqueIdType": "unknown",
+      "address": {},
+      "coordinates": {}
+    },
+    "locations": [],
+    "recurrence": null,
+    "attendees": [
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "Alvin Tay",
+          "address": "Alvin_Tay98@hotmail.com"
+        }
+      },
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "IvoryGS@outlook.com",
+          "address": "IvoryGS@outlook.com"
+        }
+      }
+    ],
+    "organizer": {
+      "emailAddress": {
+        "name": "Alvin Tay",
+        "address": "Alvin_Tay98@hotmail.com"
+      }
+    },
+    "onlineMeeting": {
+      "joinUrl": "https://join.skype.com/vceqqszkiAGc"
+    },
+    "calendar@odata.associationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')/$ref",
+    "calendar@odata.navigationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')"
+  },
+  {
+    "@odata.etag": "W/\"XE2rz9z0AU2w7/hcEBmh3QAAAAAbXw==\"",
+    "id": "AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgENAAAAXE2rz9z0AU2w7-hcEBmh3QAAAhUEAAAA",
+    "createdDateTime": "2022-07-08T03:57:31.4212564Z",
+    "lastModifiedDateTime": "2022-07-08T03:59:31.8810224Z",
+    "changeKey": "XE2rz9z0AU2w7/hcEBmh3QAAAAAbXw==",
+    "categories": [],
+    "transactionId": null,
+    "originalStartTimeZone": "Singapore Standard Time",
+    "originalEndTimeZone": "Singapore Standard Time",
+    "iCalUId": "040000008200E00074C5B7101A82E00800000000C4D849D07E92D8010000000000000000100000008E73F634F5EF52418012C855E379E783",
+    "reminderMinutesBeforeStart": 15,
+    "isReminderOn": true,
+    "hasAttachments": false,
+    "subject": "test3",
+    "bodyPreview": ".........................................................................................................................................\r\nJoin online meeting\r\n.............................................................................................",
+    "importance": "normal",
+    "sensitivity": "normal",
+    "isAllDay": false,
+    "isCancelled": false,
+    "isOrganizer": false,
+    "responseRequested": true,
+    "seriesMasterId": null,
+    "showAs": "tentative",
+    "type": "singleInstance",
+    "webLink": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q%2FhrOYZSAcAXE2rz9z0AU2w7%2FhcEBmh3QAAAgENAAAAXE2rz9z0AU2w7%2FhcEBmh3QAAAhUEAAAA&exvsurl=1&path=/calendar/item",
+    "onlineMeetingUrl": "https://join.skype.com/ws5sTdqdQ5FF",
+    "isOnlineMeeting": true,
+    "onlineMeetingProvider": "skypeForConsumer",
+    "allowNewTimeProposals": true,
+    "occurrenceId": null,
+    "isDraft": false,
+    "hideAttendees": false,
+    "responseStatus": {
+      "response": "notResponded",
+      "time": "0001-01-01T00:00:00Z"
+    },
+    "body": {
+      "contentType": "html",
+      "content": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n</head>\r\n<body>\r\n<br>\r\n<font face=\"Calibri\" size=\"1\" color=\"#404040\"><span style=\"\">.........................................................................................................................................</span></font><br>\r\n<font face=\"Calibri\" size=\"4\"><span style=\"font-size:16pt\"><a href=\"https://join.skype.com/ws5sTdqdQ5FF\">Join online meeting</a></span></font><br>\r\n<font face=\"Calibri\" size=\"1\" color=\"#404040\"><span style=\"font-size:8pt\">.........................................................................................................................................</span></font><br>\r\n</body>\r\n</html>\r\n"
+    },
+    "start": {
+      "dateTime": "2022-07-16T08:00:00.0000000",
+      "timeZone": "UTC"
+    },
+    "end": {
+      "dateTime": "2022-07-16T08:30:00.0000000",
+      "timeZone": "UTC"
+    },
+    "location": {
+      "displayName": "",
+      "locationType": "default",
+      "uniqueIdType": "unknown",
+      "address": {},
+      "coordinates": {}
+    },
+    "locations": [],
+    "recurrence": null,
+    "attendees": [
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "Alvin Tay",
+          "address": "Alvin_Tay98@hotmail.com"
+        }
+      },
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "IvoryGS@outlook.com",
+          "address": "IvoryGS@outlook.com"
+        }
+      }
+    ],
+    "organizer": {
+      "emailAddress": {
+        "name": "Alvin Tay",
+        "address": "Alvin_Tay98@hotmail.com"
+      }
+    },
+    "onlineMeeting": {
+      "joinUrl": "https://join.skype.com/ws5sTdqdQ5FF"
+    },
+    "calendar@odata.associationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')/$ref",
+    "calendar@odata.navigationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')"
+  },
+  {
+    "@odata.etag": "W/\"XE2rz9z0AU2w7/hcEBmh3QAAAAAbQg==\"",
+    "id": "AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgENAAAAXE2rz9z0AU2w7-hcEBmh3QAAAhUDAAAA",
+    "createdDateTime": "2022-07-08T03:56:52.4710177Z",
+    "lastModifiedDateTime": "2022-07-08T03:58:53.1339587Z",
+    "changeKey": "XE2rz9z0AU2w7/hcEBmh3QAAAAAbQg==",
+    "categories": [],
+    "transactionId": null,
+    "originalStartTimeZone": "Singapore Standard Time",
+    "originalEndTimeZone": "Singapore Standard Time",
+    "iCalUId": "040000008200E00074C5B7101A82E00800000000949CF0BA7E92D801000000000000000010000000188A867110B39644A9E22487CCC5BC4A",
+    "reminderMinutesBeforeStart": 15,
+    "isReminderOn": true,
+    "hasAttachments": false,
+    "subject": "test5",
+    "bodyPreview": ".........................................................................................................................................\r\nJoin online meeting\r\n.............................................................................................",
+    "importance": "normal",
+    "sensitivity": "normal",
+    "isAllDay": false,
+    "isCancelled": false,
+    "isOrganizer": false,
+    "responseRequested": true,
+    "seriesMasterId": null,
+    "showAs": "busy",
+    "type": "singleInstance",
+    "webLink": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q%2FhrOYZSAcAXE2rz9z0AU2w7%2FhcEBmh3QAAAgENAAAAXE2rz9z0AU2w7%2FhcEBmh3QAAAhUDAAAA&exvsurl=1&path=/calendar/item",
+    "onlineMeetingUrl": "https://join.skype.com/wUfRDdvdozMS",
+    "isOnlineMeeting": true,
+    "onlineMeetingProvider": "skypeForConsumer",
+    "allowNewTimeProposals": true,
+    "occurrenceId": null,
+    "isDraft": false,
+    "hideAttendees": false,
+    "responseStatus": {
+      "response": "accepted",
+      "time": "2022-07-08T03:57:56.4975259Z"
+    },
+    "body": {
+      "contentType": "html",
+      "content": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n</head>\r\n<body>\r\n<br>\r\n<font face=\"Calibri\" size=\"1\" color=\"#404040\"><span style=\"\">.........................................................................................................................................</span></font><br>\r\n<font face=\"Calibri\" size=\"4\"><span style=\"font-size:16pt\"><a href=\"https://join.skype.com/wUfRDdvdozMS\">Join online meeting</a></span></font><br>\r\n<font face=\"Calibri\" size=\"1\" color=\"#404040\"><span style=\"font-size:8pt\">.........................................................................................................................................</span></font><br>\r\n</body>\r\n</html>\r\n"
+    },
+    "start": {
+      "dateTime": "2022-07-18T08:00:00.0000000",
+      "timeZone": "UTC"
+    },
+    "end": {
+      "dateTime": "2022-07-18T08:30:00.0000000",
+      "timeZone": "UTC"
+    },
+    "location": {
+      "displayName": "",
+      "locationType": "default",
+      "uniqueIdType": "unknown",
+      "address": {},
+      "coordinates": {}
+    },
+    "locations": [],
+    "recurrence": null,
+    "attendees": [
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "Alvin Tay",
+          "address": "Alvin_Tay98@hotmail.com"
+        }
+      },
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "IvoryGS@outlook.com",
+          "address": "IvoryGS@outlook.com"
+        }
+      }
+    ],
+    "organizer": {
+      "emailAddress": {
+        "name": "Alvin Tay",
+        "address": "Alvin_Tay98@hotmail.com"
+      }
+    },
+    "onlineMeeting": {
+      "joinUrl": "https://join.skype.com/wUfRDdvdozMS"
+    },
+    "calendar@odata.associationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')/$ref",
+    "calendar@odata.navigationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')"
+  },
+  {
+    "@odata.etag": "W/\"XE2rz9z0AU2w7/hcEBmh3QAAAAAbIw==\"",
+    "id": "AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgENAAAAXE2rz9z0AU2w7-hcEBmh3QAAAhUCAAAA",
+    "createdDateTime": "2022-07-08T03:56:23.2388103Z",
+    "lastModifiedDateTime": "2022-07-08T03:58:23.917369Z",
+    "changeKey": "XE2rz9z0AU2w7/hcEBmh3QAAAAAbIw==",
+    "categories": [],
+    "transactionId": null,
+    "originalStartTimeZone": "Singapore Standard Time",
+    "originalEndTimeZone": "Singapore Standard Time",
+    "iCalUId": "040000008200E00074C5B7101A82E008000000000CA099AA7E92D801000000000000000010000000F23D0996E63632458E799DC30F7168DF",
+    "reminderMinutesBeforeStart": 15,
+    "isReminderOn": true,
+    "hasAttachments": false,
+    "subject": "test1",
+    "bodyPreview": "",
+    "importance": "normal",
+    "sensitivity": "normal",
+    "isAllDay": false,
+    "isCancelled": false,
+    "isOrganizer": false,
+    "responseRequested": true,
+    "seriesMasterId": null,
+    "showAs": "tentative",
+    "type": "singleInstance",
+    "webLink": "https://outlook.live.com/owa/?itemid=AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q%2FhrOYZSAcAXE2rz9z0AU2w7%2FhcEBmh3QAAAgENAAAAXE2rz9z0AU2w7%2FhcEBmh3QAAAhUCAAAA&exvsurl=1&path=/calendar/item",
+    "onlineMeetingUrl": null,
+    "isOnlineMeeting": false,
+    "onlineMeetingProvider": "unknown",
+    "allowNewTimeProposals": true,
+    "occurrenceId": null,
+    "isDraft": false,
+    "hideAttendees": false,
+    "responseStatus": {
+      "response": "notResponded",
+      "time": "0001-01-01T00:00:00Z"
+    },
+    "body": {
+      "contentType": "html",
+      "content": ""
+    },
+    "start": {
+      "dateTime": "2022-07-14T08:00:00.0000000",
+      "timeZone": "UTC"
+    },
+    "end": {
+      "dateTime": "2022-07-14T08:30:00.0000000",
+      "timeZone": "UTC"
+    },
+    "location": {
+      "displayName": "",
+      "locationType": "default",
+      "uniqueIdType": "unknown",
+      "address": {},
+      "coordinates": {}
+    },
+    "locations": [],
+    "recurrence": null,
+    "attendees": [
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "Alvin Tay",
+          "address": "Alvin_Tay98@hotmail.com"
+        }
+      },
+      {
+        "type": "required",
+        "status": {
+          "response": "none",
+          "time": "0001-01-01T00:00:00Z"
+        },
+        "emailAddress": {
+          "name": "IvoryGS@outlook.com",
+          "address": "IvoryGS@outlook.com"
+        }
+      }
+    ],
+    "organizer": {
+      "emailAddress": {
+        "name": "Alvin Tay",
+        "address": "Alvin_Tay98@hotmail.com"
+      }
+    },
+    "onlineMeeting": null,
+    "calendar@odata.associationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')/$ref",
+    "calendar@odata.navigationLink": "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/v1.0/users('IvoryGS@outlook.com')/calendars('AQMkADAwATNiZmYAZC00Zjc5LTk0OTItMDACLTAwCgBGAAADv2Hvz9HFm0Wi4q-hrOYZSAcAXE2rz9z0AU2w7-hcEBmh3QAAAgEGAAAAXE2rz9z0AU2w7-hcEBmh3QAAAgk9AAAA')"
+  }
+]

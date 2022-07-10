@@ -3,9 +3,7 @@ import boto3
 import json
 import re
 import datetime
-import time
 import os
-import uuid
 
 dynamodb = boto3.resource('dynamodb')
 
@@ -26,7 +24,7 @@ class RequestResponseProcessor:
         self._unvalidatedRequest = json.loads(event["body"])
         self._validatedRequest = {}
         self._regex = {
-            "userEmail": r"^[ a-zA-Z0-9]{0,154}@[ a-zA-Z0-9]{0,50}.[ a-zA-Z0-9]{0,50}$",
+            "userEmail": r"^[ a-zA-Z0-9]{0,128}@[ a-zA-Z0-9.-]{0,127}$",
             "id": r"^[ a-zA-Z0-9-]{0,256}$",
             "title": r"^[ a-zA-Z0-9]{0,256}$",
             "description": r"^[ a-zA-Z0-9]{0,256}$",
@@ -50,7 +48,7 @@ class RequestResponseProcessor:
             "headers": {
                 "Access-Control-Allow-Headers": "Content-Type",
                 "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
+                'Access-Control-Allow-Methods': 'DELETE,OPTIONS,POST,GET'
             }
         }
 
