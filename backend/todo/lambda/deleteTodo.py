@@ -24,7 +24,7 @@ class RequestResponseProcessor:
         self._unvalidatedRequest = event['queryStringParameters']
         self._validatedRequest = {}
         self._regex = {
-            "userEmail": r"^[ a-zA-Z0-9]{0,154}@[ a-zA-Z0-9]{0,50}.[ a-zA-Z0-9]{0,50}$",
+            "userEmail": r"^[ a-zA-Z0-9]{0,128}@[ a-zA-Z0-9.-]{0,127}$",
             "id": r"^[ a-zA-Z0-9-]{0,256}$",
         }
         self._requiredAttributes = ["userEmail", "id"]

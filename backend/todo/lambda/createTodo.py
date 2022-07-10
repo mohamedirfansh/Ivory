@@ -25,7 +25,7 @@ class RequestResponseProcessor:
         self._unvalidatedRequest = json.loads(event["body"])
         self._validatedRequest = {}
         self._regex = {
-            "userEmail": r"^[ a-zA-Z0-9]{0,154}@[ a-zA-Z0-9]{0,50}.[ a-zA-Z0-9]{0,50}$",
+            "userEmail": r"^[ a-zA-Z0-9]{0,128}@[ a-zA-Z0-9]{0,127}$",
             "title": r"^[ a-zA-Z0-9]{0,256}$",
             "description": r"^[ a-zA-Z0-9]{0,256}$",
             "deadline": r"^[0-9]{2}/[0-9]{2}/[0-9]{4}$",
