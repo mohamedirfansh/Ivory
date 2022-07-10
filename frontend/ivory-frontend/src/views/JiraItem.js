@@ -18,7 +18,7 @@ const JiraItem = (props) => {
             <Card.Footer>
                 {jiraTicket.labels.map(label => {
                     return (
-                        <h5>
+                        <h5 key={label}>
                         <Badge bg="info">
                             {label}
                         </Badge>

@@ -2,12 +2,17 @@ import { useState, useEffect } from "react";
 import { Card, Table } from "react-bootstrap";
 import Taskitem from "./TaskItem";
 
+const TASK_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/etasks/"
+
+const TOKEN = process.env.REACT_APP_OUTLOOK_TOKEN
 const TaskCard = (props) => {
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
         // init
-        setTasks(prev => ["TASK 1", "TASK 2"]);
+        fetch(TASK_ENDPOINT + "all")
+          .then(response => response.json())
+          .then(result => setTasks(result))
     }, [setTasks]);
 
     return (
@@ -21,7 +26,7 @@ const TaskCard = (props) => {
                 <Table>
                 <tbody>
                     {
-                        tasks.map(task => (<Taskitem taskText={task}/>))
+                        tasks.map(task => (<Taskitem {...task} key={task.id}/>))
                     }
                 </tbody>
                 </Table>

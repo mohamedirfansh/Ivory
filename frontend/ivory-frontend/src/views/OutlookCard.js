@@ -6,6 +6,8 @@ import OutlookEvent from "./OutlookEvent";
 
 import OutLookItem from "./OutlookItem";
 
+const OUTLOOK_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/meetings/"
+
 const OutlookCard = (props) => {
     const [outLookLines, setOutLookLines] = useState([]);
     const defaultEvent = new OutlookEvent(event1);

@@ -1,53 +1,36 @@
-import { Form, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Form, Button, OverlayTrigger, Tooltip, Card } from "react-bootstrap";
 
 const TaskItem = (props) => {
-    const taskText = props.taskText;
+    const dueDateTime = new Date(props.dueDateTime).toLocaleString("end-GB");
+    const createdDateTime = new Date(props.createdDateTime).toLocaleString("end-GB");
+
     return (
         <tr>
             <td>
-                <Form.Check className="mb-1 pl-0">
-                    <Form.Check.Label>
-                    <Form.Check.Input
-                        defaultValue=""
-                        type="checkbox"
-                    ></Form.Check.Input>
-                    <span className="form-check-sign"></span>
-                    </Form.Check.Label>
-                </Form.Check>
-            </td>
+                <Card>
+                    <Card.Header>
+                        <Card.Title>
+                            <OverlayTrigger overlay={
+                                <Tooltip>
+                                    Created on {createdDateTime}
+                                </Tooltip>
+                                }>
+                                <b>
+                                    {dueDateTime}
+                                <br/>
+                                {props.title}
+                                </b>
+                            </OverlayTrigger>
+                        </Card.Title>
+                        <Card.Subtitle as={"h6"}>
+                            {props.importance.toUpperCase()}
+                        </Card.Subtitle>
+                    </Card.Header>
 
-            <td>
-                Edit
-            </td>
-            <td className="td-actions text-right">
-                    <OverlayTrigger
-                    overlay={
-                        <Tooltip id="tooltip-488980961">
-                        {taskText}
-                        </Tooltip>
-                    }
-                    >
-                    <Button
-                        className="btn-simple btn-link p-1"
-                        type="button"
-                        variant="info"
-                    >
-                        <i className="fas fa-edit"></i>
-                    </Button>
-                    </OverlayTrigger>
-                    <OverlayTrigger
-                    overlay={
-                        <Tooltip id="tooltip-506045838">Remove</Tooltip>
-                    }
-                    >
-                    <Button
-                        className="btn-simple btn-link p-1"
-                        type="button"
-                        variant="danger"
-                    >
-                        <i className="fas fa-times"></i>
-                    </Button>
-                    </OverlayTrigger>
+                    <Card.Body>
+                        {props.body.content}
+                    </Card.Body>
+                </Card>
             </td>
         </tr>
     );

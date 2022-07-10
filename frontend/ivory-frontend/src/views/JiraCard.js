@@ -30,7 +30,7 @@ const JiraCard = (props) => {
                         <tbody>
                             {
                                 jiraItems.map(jiraTicket => {
-                                    return (<JiraItem jiraTicket={jiraTicket}/>)
+                                    return (<JiraItem jiraTicket={jiraTicket} key={jiraTicket.key}/>)
                                 })
                             }
                         </tbody>

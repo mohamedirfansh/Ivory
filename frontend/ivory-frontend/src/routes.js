@@ -19,7 +19,6 @@ import Dashboard from "views/Dashboard.js";
 import Note from "views/Note";
 import Typography from "views/Typography.js";
 import Icons from "views/Icons.js";
-import Maps from "views/Maps.js";
 import Notifications from "views/Notifications.js";
 import DashboardPersonnal from "views/DashboardPersonnal";
 // import Upgrade from "views/Upgrade.js";
@@ -41,7 +40,7 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/dashboardPersonnal",
+    path: "/personalDashboard",
     name: "Personal",
     icon: "nc-icon nc-circle-09",
     component: DashboardPersonnal,
@@ -66,13 +65,6 @@ const dashboardRoutes = [
     name: "Icons",
     icon: "nc-icon nc-atom",
     component: Icons,
-    layout: "/admin"
-  },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "nc-icon nc-pin-3",
-    component: Maps,
     layout: "/admin"
   },
   {
