@@ -6,6 +6,9 @@ const JiraItem = (props) => {
     const createdOn = new Date(props.deadline);
 
     return (
+        <tr>
+        <td>
+
         <Card>
             <Card.Header>
                 <Card.Title>
@@ -27,6 +30,8 @@ const JiraItem = (props) => {
                 })}
             </Card.Footer>
         </Card>
+        </td>
+        </tr>
     );
 }
 

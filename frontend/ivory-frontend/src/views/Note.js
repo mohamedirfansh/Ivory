@@ -39,15 +39,16 @@ const Note = (props) => {
             const id = passedState.id;
             // create and publish new empty note
             setEditorState(EditorState.createEmpty());
+            setSelectedNote(id);
             console.log(convertToRaw(editorState.getCurrentContent()));
-            const data = convertToRaw(editorState.getCurrentContent());
+            const data = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
             fetch(NOTES_ENDPOINT, {
                 method: 'POST', 
-                body: {
-                    noteid: id, 
+                body: JSON.stringify({
+                    noteid: id + ".json", 
                     email: USER_EMAIL, 
                     body: data
-                }
+                })
             }).then(res => initNotesList());
             setSelectedNote(id);
         }
@@ -55,11 +56,10 @@ const Note = (props) => {
 
     const selectNote = (selected) => {
         setSelectedNote(selected.target.value);
-        selectedNote.current = selected.target.value;
-        console.log(selected);
+        console.log(selected.target.value);
         fetch(NOTES_ENDPOINT + "?" + new URLSearchParams({
             useremail: USER_EMAIL, 
-            noteid: selected.target.value
+            noteid: selected.target.value.toString() + ".json"
         }), {
             mode: 'cors', 
             'Content-Type': 'application/json'
@@ -69,8 +69,11 @@ const Note = (props) => {
             return res;
            })
            .then(data => {
+            console.log(data.data);
             setCurrentNote(data.data);
-            setEditorState(convertFromRaw(data.data))
+            const state = EditorState.createWithContent(convertFromRaw(JSON.parse(data.data)));
+            console.log(state);
+            setEditorState((prev) => state);
            });
     }
 
@@ -97,16 +100,29 @@ const Note = (props) => {
     }
 
     const publishNote = (event) => {
-        const data = convertToRaw(editorState.getCurrentContent());
+        event.preventDefault();
+        console.log(selectedNote);
+        const data = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
+
+        fetch(NOTES_ENDPOINT + "?" + new URLSearchParams({
+            useremail: USER_EMAIL, 
+            noteid: selectedNote
+        }), {
+            method: "DELETE", 
+            mode: 'cors', 
+            headers: {'Content-Type': 'application/json'}
+        }).then(response => {
+            fetch(NOTES_ENDPOINT, {
+                method: 'POST', 
+                body: JSON.stringify({
+                    noteid: selectedNote + ".json", 
+                    email: USER_EMAIL, 
+                    body: data
+                })
+            }).then(res => console.log(res))
+            .catch(e => console.log(e));
+        });
         
-        fetch(NOTES_ENDPOINT, {
-            method: 'POST', 
-            body: {
-                noteid: selectedNote, 
-                email: USER_EMAIL, 
-                body: data
-            }
-        }).then(res => console.log(res));
     }
 
     return (
@@ -131,7 +147,7 @@ const Note = (props) => {
                         <OverlayTrigger
                         overlay={
                             <Tooltip id="tooltip-488980961">
-                            Create New Note
+                            Save Note
                             </Tooltip>
                         }
                         >
@@ -170,7 +186,7 @@ const Note = (props) => {
                 <Col xs={12}>
                     <Card>
                         {/* <Editor editorState={EditorState.createWithContent(convertFromRaw(currentNote))}/> */}
-                        <Editor />
+                        <Editor editorState={editorState} onEditorStateChange={e => setEditorState(e)}/>
                     </Card>
                 </Col>
             </Row>

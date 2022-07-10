@@ -47,33 +47,33 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/note",
-    name: "Note",
+    path: "/notes",
+    name: "Notes",
     icon: "nc-icon nc-notes",
     component: Note,
     layout: "/admin"
   },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: "nc-icon nc-paper-2",
-    component: Typography,
-    layout: "/admin"
-  },
-  {
-    path: "/icons",
-    name: "Icons",
-    icon: "nc-icon nc-atom",
-    component: Icons,
-    layout: "/admin"
-  },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "nc-icon nc-bell-55",
-    component: Notifications,
-    layout: "/admin"
-  }
+  // {
+  //   path: "/typography",
+  //   name: "Typography",
+  //   icon: "nc-icon nc-paper-2",
+  //   component: Typography,
+  //   layout: "/admin"
+  // },
+  // {
+  //   path: "/icons",
+  //   name: "Icons",
+  //   icon: "nc-icon nc-atom",
+  //   component: Icons,
+  //   layout: "/admin"
+  // },
+  // {
+  //   path: "/notifications",
+  //   name: "Notifications",
+  //   icon: "nc-icon nc-bell-55",
+  //   component: Notifications,
+  //   layout: "/admin"
+  // }
 ];
 
 export default dashboardRoutes;

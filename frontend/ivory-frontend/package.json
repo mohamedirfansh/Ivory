@@ -16,7 +16,8 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "5.0.1",
     "reactstrap": "8.8.1",
-    "sass": "1.53.0"
+    "sass": "1.53.0",
+    "uuid": "^8.3.2"
   },
   "optionalDependencies": {
     "jquery": "3.5.1",

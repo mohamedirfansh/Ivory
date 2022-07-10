@@ -1,7 +1,7 @@
 import { Form, Button, OverlayTrigger, Tooltip, Card } from "react-bootstrap";
 
 const TaskItem = (props) => {
-    const dueDateTime = new Date(props.dueDateTime).toLocaleString("end-GB");
+    const dueDateTime = new Date(props.dueDateTime.dateTime).toLocaleString("end-GB");
     const createdDateTime = new Date(props.createdDateTime).toLocaleString("end-GB");
 
     return (

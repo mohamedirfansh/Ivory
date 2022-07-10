@@ -30,7 +30,7 @@ import sidebarImage from "assets/img/sidebar-3.jpg";
 function Admin() {
   const [image, setImage] = React.useState(sidebarImage);
   const [color, setColor] = React.useState("black");
-  const [hasImage, setHasImage] = React.useState(true);
+  const [hasImage, setHasImage] = React.useState(false);
   const location = useLocation();
   const mainPanel = React.useRef(null);
   const getRoutes = (routes) => {
@@ -66,7 +66,7 @@ function Admin() {
       <div className="wrapper">
         <Sidebar color={color} image={hasImage ? image : ""} routes={routes} />
         <div className="main-panel" ref={mainPanel} style={{width: "85%"}}>
-          <AdminNavbar />
+          {/* <AdminNavbar /> */}
           <div className="content">
             <Switch>{getRoutes(routes)}</Switch>
           </div>

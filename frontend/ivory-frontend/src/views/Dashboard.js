@@ -1,42 +1,30 @@
 import React from "react";
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 // react-bootstrap components
 import {
-  Badge,
-  Button,
-  Card,
-  Navbar,
-  Nav,
-  Table,
   Container,
   Row,
   Col,
-  Form,
-  OverlayTrigger,
-  Tooltip,
 } from "react-bootstrap";
 import OutlookCard from "./OutlookCard";
 import EmailCard from "./EmailCard";
-import NotInOffice from "./NotInOffice";
 
 function Dashboard() {
   return (
     <>
       <Container fluid>
         <Row>
-          <Col xs={4}>
+          <Col xs={6}>
             <OutlookCard/>
           </Col>
 
-          <Col xs={5}>
+          <Col xs={6}>
             <EmailCard/>
           </Col>
 
-          <Col xs={3}>
+          {/* <Col xs={3}>
             <NotInOffice/>
-          </Col>
+          </Col> */}
   
         </Row>
       </Container>

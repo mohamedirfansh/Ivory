@@ -22,6 +22,8 @@ import { Nav } from "react-bootstrap";
 
 import logo from "assets/img/reactlogo.png";
 
+import NotInOffice from "views/NotInOffice";
+
 function Sidebar({ color, image, routes }) {
   const location = useLocation();
   const activeRoute = (routeName) => {
@@ -38,14 +40,14 @@ function Sidebar({ color, image, routes }) {
       <div className="sidebar-wrapper" style={{padding: 0, margin: 0}}>
         <div className="logo d-flex align-items-center justify-content-start" style={{padding: 0, marginRight: 0}}>
           <a
-            href="https://www.creative-tim.com?ref=lbd-sidebar"
+            href="/admin/dashboard"
             className="simple-text logo-mini mx-1"
           >
             <div className="logo-img">
               <img src={require("assets/img/reactlogo.png")} alt="..." />
             </div>
           </a>
-          <a className="simple-text" href="http://www.creative-tim.com">
+          <a className="simple-text" href="/admin/dashboard">
             GS Ivory
           </a>
         </div>
@@ -65,7 +67,7 @@ function Sidebar({ color, image, routes }) {
                     to={prop.layout + prop.path}
                     className="nav-link"
                     activeClassName="active"
-                    style={{"padding-right": 0, "padding-left": 5, margin: 5, marginRight: 0, marginLeft: 0}}
+                    style={{"paddingRight": 0, "paddingLeft": 5, margin: 5, marginRight: 0, marginLeft: 0}}
                   >
                     <i className={prop.icon} />
                     <p>{prop.name}</p>
@@ -75,6 +77,10 @@ function Sidebar({ color, image, routes }) {
             return null;
           })}
         </Nav>
+        <div style={{"position": "absolute", "bottom": "0", "width": "100%"}}>
+        <NotInOffice/>
+
+        </div>
       </div>
     </div>
   );
