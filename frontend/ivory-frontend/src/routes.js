@@ -19,7 +19,6 @@ import Dashboard from "views/Dashboard.js";
 import Note from "views/Note";
 import Typography from "views/Typography.js";
 import Icons from "views/Icons.js";
-import Notifications from "views/Notifications.js";
 import DashboardPersonnal from "views/DashboardPersonnal";
 // import Upgrade from "views/Upgrade.js";
 
