@@ -23,6 +23,7 @@ import { Nav } from "react-bootstrap";
 import logo from "assets/img/reactlogo.png";
 
 import NotInOffice from "views/NotInOffice";
+import { CardFooter } from "reactstrap";
 
 function Sidebar({ color, image, routes }) {
   const location = useLocation();
@@ -44,7 +45,7 @@ function Sidebar({ color, image, routes }) {
             className="simple-text logo-mini mx-1"
           >
             <div className="logo-img">
-              <img src={require("assets/img/reactlogo.png")} alt="..." />
+              <img src={require("assets/img/ivorylogo.png")} alt="..." />
             </div>
           </a>
           <a className="simple-text" href="/admin/dashboard">
@@ -79,7 +80,12 @@ function Sidebar({ color, image, routes }) {
         </Nav>
         <div style={{"position": "absolute", "bottom": "0", "width": "100%"}}>
         <NotInOffice/>
-
+        <CardFooter
+          style={{
+            fontSize: 12
+          }}>
+          <a target="_blank" href="https://icons8.com/icon/j27nHMUQL9v7/notes">Notes</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        </CardFooter>
         </div>
       </div>
     </div>

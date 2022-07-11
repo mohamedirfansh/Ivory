@@ -9,6 +9,12 @@ import re
 import datetime
 import os
 
+HEADERS = {
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'DELETE,OPTIONS,POST,GET'
+}
+
 
 # logging function
 def log(msg, level, trace = "NULL"):
@@ -48,11 +54,7 @@ class RequestResponseProcessor:
         return {
             "statusCode": 200,
             "body": json.dumps("Success"),
-            "headers": {
-                "Access-Control-Allow-Headers": "Content-Type",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "OPTIONS,POST,GET"
-            }
+            "headers": HEADERS
         }
 
     def validateRequest(self):
@@ -62,7 +64,8 @@ class RequestResponseProcessor:
         # predefining errorResponse
         errorResponse = json.dumps({
             "statusCode": 400,
-            "message": "Validation failed."
+            "message": "Validation failed.",
+            "headers": HEADERS
         })
         # ensure unvalidated request contains all required attributes
         if not set(self._requiredAttributes).issubset(set(self._unvalidatedRequest.keys())):
@@ -109,7 +112,8 @@ class RequestResponseProcessor:
                     .format(err=str(e)), "ERROR")
             raise Exception(json.dumps({
                     "statusCode": 500,
-                    "message": "Failed to get encrypted table."
+                    "message": "Failed to get encrypted table.",
+                    "headers": HEADERS
                 })
             )
 
@@ -139,7 +143,8 @@ class RequestResponseProcessor:
                     .format(email=self._validatedRequest["userEmail"], err=str(e)), "ERROR")
             raise Exception(json.dumps({
                     "statusCode": 500,
-                    "message": "Failed to put in DynamoDB."
+                    "message": "Failed to put in DynamoDB.",
+                    "headers": HEADERS
                 })
             )
 

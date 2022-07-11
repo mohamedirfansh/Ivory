@@ -2,8 +2,13 @@ import { Button, OverlayTrigger, Tooltip, Card, Col, Row } from "react-bootstrap
 
 const TodoItem = (props) => {
     console.log(props);
-    const deadline = new Date(props.deadline);
-    const createdOn = new Date(props.createdOn);
+
+    // convert dd/mm/yyyy strings to JavaScript Date objects
+    var deadlineParts = props.deadline.split("/");
+    var createdOnParts = props.createdOn.split("/");
+    // month is 0-based, so parts[1] - 1
+    const deadline = new Date(+deadlineParts[2], deadlineParts[1] - 1, +deadlineParts[0]);
+    const createdOn = new Date(+createdOnParts[2], createdOnParts[1] - 1, +createdOnParts[0]);
 
     const completeTodo = (e) => {
         e.preventDefault();
@@ -31,7 +36,10 @@ const TodoItem = (props) => {
     const deleteTodo = (e) => {
         e.preventDefault();
         const endpoint = props.endpoint;
-        fetch(endpoint + "delete", {
+        fetch(endpoint + "?" + new URLSearchParams({
+            userEmail: props.userEmail,
+            id: props.id
+        }), {
             method: "DELETE", 
             mode: 'cors',
         }).then(response => response.json())

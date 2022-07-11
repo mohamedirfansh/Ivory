@@ -5,6 +5,12 @@ import re
 import datetime
 import os
 
+HEADERS = {
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'DELETE,OPTIONS,POST,GET'
+}
+
 dynamodb = boto3.resource('dynamodb')
 
 # logging function
@@ -44,7 +50,8 @@ class RequestResponseProcessor:
         # predefining errorResponse
         errorResponse = json.dumps({
             "statusCode": 400,
-            "message": "Validation failed."
+            "message": "Validation failed.",
+            "headers": HEADERS
         })
         # ensure unvalidated request contains all required attributes
         if not set(self._requiredAttributes).issubset(set(self._unvalidatedRequest.keys())):
@@ -92,11 +99,7 @@ class RequestResponseProcessor:
                 "body": json.dumps({
                     "todos": pending_todos
                 }),
-                "headers": {
-                    "Access-Control-Allow-Headers": "Content-Type",
-                    "Access-Control-Allow-Origin": "*",
-                    'Access-Control-Allow-Methods': 'DELETE,OPTIONS,POST,GET'
-                }
+                "headers": HEADERS
             }
 
         except Exception as e:
@@ -104,7 +107,8 @@ class RequestResponseProcessor:
                     .format(email=self._validatedRequest["userEmail"], err=str(e)), "ERROR")
             raise Exception(json.dumps({
                     "statusCode": 500,
-                    "message": "Failed to get todos from database."
+                    "message": "Failed to get todos from database.",
+                    "headers": HEADERS
                 })
             )
             

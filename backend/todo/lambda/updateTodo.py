@@ -5,6 +5,12 @@ import re
 import datetime
 import os
 
+HEADERS = {
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'DELETE,OPTIONS,POST,GET'
+}
+
 dynamodb = boto3.resource('dynamodb')
 
 # logging function
@@ -45,11 +51,7 @@ class RequestResponseProcessor:
         return {
             "statusCode": 200,
             "body": json.dumps("Success"),
-            "headers": {
-                "Access-Control-Allow-Headers": "Content-Type",
-                "Access-Control-Allow-Origin": "*",
-                'Access-Control-Allow-Methods': 'DELETE,OPTIONS,POST,GET'
-            }
+            "headers": HEADERS
         }
 
     def validateRequest(self):
@@ -59,7 +61,8 @@ class RequestResponseProcessor:
         # predefining errorResponse
         errorResponse = json.dumps({
             "statusCode": 400,
-            "message": "Validation failed."
+            "message": "Validation failed.",
+            "headers": HEADERS
         })
         # ensure unvalidated request contains all required attributes
         if not set(self._requiredAttributes).issubset(set(self._unvalidatedRequest.keys())):
@@ -101,7 +104,8 @@ class RequestResponseProcessor:
                     .format(id=self._validatedRequest["id"], email=self._validatedRequest["userEmail"]), "ERROR")
                 raise Exception(json.dumps({
                         "statusCode": 400,
-                        "message": "Todo item does not exist."
+                        "message": "Todo item does not exist.",
+                        "headers": HEADERS
                     })
                 )
 
@@ -126,7 +130,8 @@ class RequestResponseProcessor:
             log("[UpdateTodo] Failed.", "ERROR", e)
             raise Exception(json.dumps({
                     "statusCode": 500,
-                    "message": "Error interacting with DynamoDB"
+                    "message": "Error interacting with DynamoDB",
+                    "headers": HEADERS
                 })
             )
             

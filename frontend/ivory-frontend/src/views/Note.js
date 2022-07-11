@@ -184,7 +184,7 @@ const Note = (props) => {
             </Row>
             <Row>
                 <Col xs={12}>
-                    <Card>
+                    <Card className="pt-1 pb-1 pl-3 pr-3">
                         {/* <Editor editorState={EditorState.createWithContent(convertFromRaw(currentNote))}/> */}
                         <Editor editorState={editorState} onEditorStateChange={e => setEditorState(e)}/>
                     </Card>
