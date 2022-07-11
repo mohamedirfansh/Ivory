@@ -48,9 +48,11 @@ function Sidebar({ color, image, routes }) {
               <img src={require("assets/img/ivorylogo.png")} alt="..." />
             </div>
           </a>
-          <a className="simple-text" href="/admin/dashboard">
-            GS Ivory
-          </a>
+          <div style={{paddingLeft: 10}}>
+            <a className="simple-text" href="/admin/dashboard">
+              GS Ivory
+            </a>
+          </div>
         </div>
         <Nav>
           {routes.map((prop, key) => {
@@ -80,6 +82,7 @@ function Sidebar({ color, image, routes }) {
         </Nav>
         <div style={{"position": "absolute", "bottom": "0", "width": "100%"}}>
         <NotInOffice/>
+        
         <CardFooter
           style={{
             fontSize: 12

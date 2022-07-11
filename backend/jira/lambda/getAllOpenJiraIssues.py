@@ -126,6 +126,8 @@ class RequestResponseProcessor:
             self._jiraEmail = response["Item"]["jiraEmail"]
             self._jiraApiToken = response["Item"]["encApiToken"]
 
+            log("[GetAllOpenJiraIssues] Get dynamodb values successful.", "INFO")
+
         except Exception as e:
             log("[GetAllOpenJiraIssues] Failed to get data from dynamodb with error: {err}"\
                     .format(err=str(e)), "ERROR")
