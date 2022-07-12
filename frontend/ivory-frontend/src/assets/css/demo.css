@@ -815,3 +815,16 @@
   display: block;
   width: 100%;
 }
+
+.graph-card {
+  padding: 1rem;
+}
+
+.office-by-teams {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.office-title {
+  margin: 0 0 0.5em 1em;
+}

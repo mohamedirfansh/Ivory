@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Goldman Sans';
+    src: url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_Rg.woff2), format('woff2');
+}
+// 
 /*           Font Smoothing      */
 body,
 h1, .h1, 
@@ -17,7 +22,8 @@ td,
 button.close{
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+    // font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
+    font-family: 'Goldman Sans', sans-serif;
     font-weight: $font-weight-normal;
 }
 
@@ -70,7 +76,7 @@ h1 .subtitle{
 }
 
 .text-muted{
-    color: #9A9A9A;
+    color: #9b9b9b;
 }
 .text-primary, .text-primary:hover{
     color: #1D62F0 !important;

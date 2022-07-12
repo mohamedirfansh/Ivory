@@ -1,5 +1,6 @@
 import { Editor } from "react-draft-wysiwyg";
 import { convertFromRaw, EditorState, convertToRaw } from 'draft-js';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 
 import { useState, useEffect } from "react";
 import { Col, Container, Form, Row, Card, Button, OverlayTrigger, Tooltip } from "react-bootstrap";
@@ -11,7 +12,7 @@ const NOTES_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.
 const Note = (props) => {
     const [currentNote, setCurrentNote] = useState(EditorState.createEmpty());
     const [allNotes, setAllNotes] = useState([]);
-    const [selectedNote, setSelectedNote] = useState(null);
+    const [selectedNote, setSelectedNote] = useState("");
     const [editorState, setEditorState] = useState(() =>
         EditorState.createEmpty(),
   );
@@ -131,7 +132,7 @@ const Note = (props) => {
                 <Col xs={8}>
                     <Form.Control as={"select"} aria-label="Selector for notes" onSelect={selectNote} onChange={selectNote} value={selectedNote}>
                         <option>
-                            {"Default"}
+                            {""}
                         </option>
                         {
                             allNotes.map(noteId => (
