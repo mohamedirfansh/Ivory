@@ -17,6 +17,7 @@
 */
 import Dashboard from "views/Dashboard.js";
 // import Note from "views/Note";
+import Note from "views/Note";
 import Typography from "views/Typography.js";
 import Icons from "views/Icons.js";
 import DashboardPersonnal from "views/DashboardPersonnal";
@@ -46,13 +47,13 @@ const dashboardRoutes = [
     component: DashboardPersonnal,
     layout: "/admin"
   },
-  // {
-  //   path: "/notes",
-  //   name: "Notes",
-  //   icon: "nc-icon nc-notes",
-  //   component: Note,
-  //   layout: "/admin"
-  // },
+  {
+    path: "/notes",
+    name: "Notes",
+    icon: "nc-icon nc-notes",
+    component: Note,
+    layout: "/admin"
+  },
   {
     path: "/office",
     name: "Office",
