@@ -108,8 +108,11 @@ const Note = (props) => {
     }, [setSelectedNote]);
 
     const selectNote = (selected) => {
+        if (selected.target.value.toString() == "") {
+            setEditorState(EditorState.createEmpty());
+        }
         setSelectedNote(selected.target.value);
-        console.log(selected.target.value);
+        console.log(selected.target.value.toString());
         fetch(NOTES_ENDPOINT + "?" + new URLSearchParams({
             useremail: USER_EMAIL, 
             noteid: selected.target.value.toString() + ".json"
