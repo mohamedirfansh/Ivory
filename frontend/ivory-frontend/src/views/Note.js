@@ -17,8 +17,9 @@ const Note = (props) => {
         EditorState.createEmpty(),
   );
 
-    const initNotesList = () => {
-        fetch(NOTES_ENDPOINT + "/all?" + new URLSearchParams({
+    const getAllNotes = () => {
+        let notes;
+        return fetch(NOTES_ENDPOINT + "/all?" + new URLSearchParams({
             useremail: USER_EMAIL
         }), {
             mode: 'cors',
@@ -27,32 +28,83 @@ const Note = (props) => {
             return notes.filter(x => x.endsWith(".json"));
            })
            .then(res => res.map(x => x.split('/').pop().split('.')[0]))
-           .then(noteIds => setAllNotes(noteIds));
+           .then(noteIds => {
+                setAllNotes(noteIds);
+                return noteIds;});
+    }
+
+    const initNotesList = () => {
+        getAllNotes().then(_allNotes => true);
     }
 
     useEffect(() => {
         // initialise notes
         console.log("init");
-        initNotesList();
-        
-        const passedState = props.location.state;
-        if (passedState && !(passedState.id in allNotes)) {
-            const id = passedState.id;
-            // create and publish new empty note
-            setEditorState(EditorState.createEmpty());
-            setSelectedNote(id);
-            console.log(convertToRaw(editorState.getCurrentContent()));
-            const data = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
-            fetch(NOTES_ENDPOINT, {
-                method: 'POST', 
-                body: JSON.stringify({
-                    noteid: id + ".json", 
-                    email: USER_EMAIL, 
-                    body: data
+        // initNotesList();
+        const allNotesPromise = getAllNotes();
+
+        allNotesPromise.then(listOfAllNotes => {
+            const passedState = props.location.state;
+            console.log(listOfAllNotes);
+            console.log(passedState.id);
+            if (passedState) {
+                const id = passedState.id.split('.')[0];
+                if (listOfAllNotes.includes(id)) {
+                    console.log("includes");
+                    setSelectedNote(id);
+                    fetch(NOTES_ENDPOINT + "?" + new URLSearchParams({
+                        useremail: USER_EMAIL, 
+                        noteid: id + ".json"
+                    }), {
+                        mode: 'cors', 
+                        'Content-Type': 'application/json'
+                    }).then(response => response.json())
+                       .then(res => {
+                        console.log(res);
+                        return res;
+                       })
+                       .then(data => {
+                        console.log(data.data);
+                        setCurrentNote(data.data);
+                        const state = EditorState.createWithContent(convertFromRaw(JSON.parse(data.data)));
+                        console.log(state);
+                        setEditorState((prev) => state);
+                       });
+            
+                    return;
+                }
+                const meetingId = passedState.meetingId;
+                // create and publish new empty note
+                console.log("NEW")
+                setEditorState(EditorState.createEmpty());
+                setSelectedNote(id);
+                console.log(convertToRaw(editorState.getCurrentContent()));
+                const data = JSON.stringify(convertToRaw(editorState.getCurrentContent()));
+                fetch(NOTES_ENDPOINT, {
+                    method: 'POST', 
+                    body: JSON.stringify({
+                        noteid: id + ".json", 
+                        email: USER_EMAIL, 
+                        body: data
+                    })
+                }).then(res => {
+                    if (res.status < 300) {
+                        fetch("https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/notes/meeting/", {
+                            method: 'POST', 
+                            body: JSON.stringify({
+                                useremail: USER_EMAIL, 
+                                noteid: id + ".json", 
+                                meetingid: meetingId
+                            })
+                        })
+                    }
                 })
-            }).then(res => initNotesList());
-            setSelectedNote(id);
-        }
+                .then(res => initNotesList());
+                setSelectedNote(id);
+            } else if (passedState && listOfAllNotes.includes(passedState.id)) {
+                setSelectedNote(passedState.id);
+            } else {}    
+        });
     }, [setSelectedNote]);
 
     const selectNote = (selected) => {
@@ -93,7 +145,7 @@ const Note = (props) => {
                     console.log("deleted");
                     // success
                     setCurrentNote("");
-                    setSelectedNote(null);
+                    setSelectedNote("");
                     initNotesList(setAllNotes);
                 }
               });

@@ -12,13 +12,21 @@ const OutLookItem = (props) => {
     // console.log(outlookItemProp);
     // const outlookItem = JSON.parse(outlookItemProp);
     const meetingId = props.MeetingId.S;
-    // const noteId = props.NoteId.S;
+    let noteId;
+
+    if (props.NoteId && props.NoteId.S) {
+        noteId = props.NoteId.S;
+    } else {
+        noteId = v4().toString();
+    }
     
+    console.log(noteId);
+
     // const MEETING_ENDPOINT = "https://graph.microsoft.com/v1.0/me/events/"
     const [meeting, setMeeting] = useState({});
     const [loading, setLoading] = useState(false);
 
-    const noteId = "NoteId" in props ? props.NoteId.S : v4().toString();
+    // const noteId = "NoteId" in props ? props.NoteId.S : v4().toString();
     // useEffect(() => {
     //     fetch(MEETING_ENDPOINT + meetingId, {
     //         headers: {
@@ -90,7 +98,7 @@ const OutLookItem = (props) => {
                             >
                             <Link to={{
                                 pathname: "/admin/notes", 
-                                state: { id: noteId }
+                                state: { id: noteId, meetingId: meetingId }
                             }}>
                             <Button
                                 className="btn-simple btn-link p-1"
