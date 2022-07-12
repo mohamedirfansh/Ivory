@@ -61,6 +61,7 @@ const NotInOffice = (props) => {
 
         // update meetings in dynamodb dynamically
         fetch(UPDATE_MEETINGS_ENDPOINT, {
+            mode: 'cors',
             headers: {
                 "Authorization": 'Bearer ' + process.env.REACT_APP_OUTLOOK_TOKEN, 
                 "User-Email": USER_EMAIL
