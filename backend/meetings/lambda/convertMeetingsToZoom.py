@@ -26,8 +26,6 @@ class RequestResponseProcessor:
     '''
     def __init__(self, event):
         self._unvalidatedRequest = json.loads(event["body"])
-        print("start: " + self._unvalidatedRequest["startTime"])
-        print("end: " + self._unvalidatedRequest["endTime"])
         self._validatedRequest = {}
         self._regex = {
             "userEmail": r"^[0-9a-zA-Z.-_]{0,256}@[0-9a-zA-Z.-_]{0,256}$", # don't need this if we hardcode the token.. but for zoom & outlook apis
@@ -39,8 +37,6 @@ class RequestResponseProcessor:
         self._optionalAttributes = []
         self._getCalendarURL = "https://graph.microsoft.com/v1.0/me/calendar/calendarView?startDateTime={start_datetime}&endDateTime={end_datetime}"
         self._patchEventURL = "https://graph.microsoft.com/v1.0/me/events/{id}"
-        # we assume the zoom createMeeting api returns this for us
-        self._meetingDetails = "https://www.zoom.us/j/87211496830 (Passcode: 472216)"
 
     def orchestrate(self):
         '''
@@ -108,26 +104,7 @@ class RequestResponseProcessor:
             # update physical events to zoom links
             self._outlookHeaders["Content-Type"] = "application/json"
             for event in resObj["value"]:
-                if (event["isOrganizer"] and not (event["isOnlineMeeting"] or \
-                "zoom" in (event["location"]["displayName"] or event["body"]["content"]))):
-                    response = requests.patch(self._patchEventURL.format(id = event["id"]), \
-                                                headers = self._outlookHeaders,
-                                                json = {
-                                                    "location": {
-                                                        "displayName": self._meetingDetails,
-                                                        "uniqueId": self._meetingDetails
-                                                    }
-                                                }).content.decode("utf-8")
-                    responseObj = json.loads(response)
-                    if "error" in response:
-                        log("[ConvertMeetingsToZoom] Calendar update failed: " + str(responseObj), "INFO")
-                        raise Exception(json.dumps({
-                                "statusCode": 500,
-                                "message": "Error with callling MS patch API: " + str(responseObj["error"]["code"]),
-                                "headers": HEADERS
-                            })
-                        )
-                    log("[ConvertMeetingsToZoom] Event update successful for " + event["subject"], "INFO")
+                self.convertEventToZoom(event)
                     
             log("[ConvertMeetingsToZoom] All events in calendar updated successfully.", "INFO")
                 
@@ -140,6 +117,41 @@ class RequestResponseProcessor:
                 })
             )
 
+    def convertEventToZoom(self, event):
+        # we assume the zoom createMeeting api returns this for us
+        meetingDetails = "https://www.zoom.us/j/87211496830 (Passcode: 472216)"
+
+        try:
+            if (event["isOrganizer"] and not (event["isOnlineMeeting"] or \
+            "zoom" in (event["location"]["displayName"] or event["body"]["content"]))):
+                response = requests.patch(self._patchEventURL.format(id = event["id"]), \
+                                            headers = self._outlookHeaders,
+                                            json = {
+                                                "location": {
+                                                    "displayName": meetingDetails,
+                                                    "uniqueId": meetingDetails
+                                                }
+                                            }).content.decode("utf-8")
+                responseObj = json.loads(response)
+                if "error" in response:
+                    log("[ConvertMeetingsToZoom] Calendar update failed: " + str(responseObj), "INFO")
+                    raise Exception(json.dumps({
+                            "statusCode": 500,
+                            "message": "Error returned from MS patch API: " + str(responseObj["error"]["code"]),
+                            "headers": HEADERS
+                        })
+                    )
+
+                log("[ConvertMeetingsToZoom] Event update successful for " + event["subject"], "INFO")
+
+        except Exception as e:
+            log("[ConvertMeetingsToZoom] Failed.", "ERROR", e)
+            raise Exception(json.dumps({
+                    "statusCode": 500,
+                    "message": "Error with callling MS patch API",
+                    "headers": HEADERS
+                })
+            )
 
 def lambda_handler(event, context):
     req = RequestResponseProcessor(event)

@@ -10,14 +10,13 @@ const TIMEZONE_OFFSET_MILLIS = now.getTimezoneOffset() * 60000
 const end_of_today = new Date(Math.ceil((now.valueOf() - TIMEZONE_OFFSET_MILLIS)/MILLISECONDS_PER_DAY)*MILLISECONDS_PER_DAY + TIMEZONE_OFFSET_MILLIS);
 
 const NotInOffice = (props) => {
-    console.log(now.toString())
-    console.log(end_of_today.toString());
 
     const [alertShow, setAlertShow] = useState(false);
     const [wfh, setWfh] = useState(false);
 
     const onClick = (e) => {
         if (!wfh) {
+            console.log(process.env.REACT_APP_OUTLOOK_TOKEN)
             // physical => online
             fetch(CONVERT_ENDPOINT, {
                 method: 'POST', 
@@ -59,22 +58,6 @@ const NotInOffice = (props) => {
                 </Alert>
             </div>
         </div>
-
-        // <Card style={{backgroundColor: "#4f4f4f", borderStyle: "none"}}>
-        //     <Card.Header style={{backgroundColor: "#4f4f4f"}}>
-        //         <Card.Title as="h5" style={{textAlign: "center", color: "#fff"}}>Today I'm...</Card.Title>
-        //     </Card.Header>
-        //     <Card.Body>
-        //     <div className="d-grid">
-        //         <Button style={{"width": "100%", color: "#fff"}} variant={ "secondary" } onClick={onClick}>
-        //             {wfh ? "In Office" : "Working from Home"}
-        //         </Button>
-        //     </div>
-        //     </Card.Body>
-        //     {
-        //         (converted) ? (<Card.Footer><p style={{"color": "green"}}>Meetings Converted!</p></Card.Footer>) : (<p></p>)
-        //     }
-        // </Card>
     )
 }
 
