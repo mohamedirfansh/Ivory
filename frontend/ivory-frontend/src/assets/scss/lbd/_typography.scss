@@ -1,10 +1,10 @@
-@import url('https://fonts.cdnfonts.com/css/goldman-sans');
+// @import url('https://fonts.cdnfonts.com/css/goldman-sans');
 
-// @font-face {
-//     font-family: 'Goldman Sans';
-//     src: url('/src/assets/fonts/font_for_websites_WOFF2/GoldmanSans_W_Rg.woff2'), format('woff2');
-// }
-
+@font-face {
+    font-family: 'Goldman Sans';
+    src: url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_Rg.woff2), format('woff2');
+}
+// 
 /*           Font Smoothing      */
 body,
 h1, .h1, 
