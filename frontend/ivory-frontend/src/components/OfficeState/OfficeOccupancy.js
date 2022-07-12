@@ -35,19 +35,19 @@ export default function OfficeOccupancy() {
       },
     },
   };
-  const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  const labels = ['04/07', '05/07', '06/07', '07/07', '08/07', '11/07', '12/07'];
   const data = {
     labels,
     datasets: [
       {
         label: 'Anson',
-        data: [1,2,3,4,5,6,7],
+        data: [121,232,221,123,121,90,73],
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
         label: 'Raffles',
-        data: [2,4,6,2,3,7,6],
+        data: [221,334,126,212,223,127,96],
         borderColor: 'rgb(53, 162, 235)',
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },

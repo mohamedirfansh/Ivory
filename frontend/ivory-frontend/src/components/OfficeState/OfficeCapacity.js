@@ -10,14 +10,14 @@ export const data = {
   datasets: [
     {
       label: 'Occupancy',
-      data: [200, 604],
+      data: [163, 604],
       backgroundColor: [
-        'rgba(255, 99, 132, 0.7)',
-        'rgba(75, 192, 192, 0.7)',
+        'rgba(255, 99, 132, 0.8)',
+        'rgba(53, 162, 235, 0.8)',
       ],
       borderColor: [
         'rgba(255, 99, 132, 1)',
-        'rgba(75, 192, 192, 1)',
+        'rgba(53, 162, 235, 1)',
       ],
       borderWidth: 1,
     },

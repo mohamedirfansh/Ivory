@@ -48,17 +48,17 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/office",
-    name: "Office",
-    icon: "nc-icon nc-bag",
-    component: OfficeState,
-    layout: "/admin"
-  },
-  {
     path: "/notes",
     name: "Notes",
     icon: "nc-icon nc-notes",
     component: Note,
+    layout: "/admin"
+  },
+  {
+    path: "/office",
+    name: "Office",
+    icon: "nc-icon nc-bag",
+    component: OfficeState,
     layout: "/admin"
   },
   // {
