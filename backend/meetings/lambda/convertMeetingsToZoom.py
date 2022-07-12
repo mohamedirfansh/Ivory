@@ -119,7 +119,7 @@ class RequestResponseProcessor:
 
     def convertEventToZoom(self, event):
         # we assume the zoom createMeeting api returns this for us
-        meetingDetails = "https://www.zoom.us/j/87211496830 (Passcode: 472216)"
+        meetingDetails = "https://zoom.us/j/5032781184?pwd=Mnl2N1iqcHBtZnEzVUc5ZS9BQVWKUT09"
 
         try:
             if (event["isOrganizer"] and not (event["isOnlineMeeting"] or \

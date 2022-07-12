@@ -16,7 +16,6 @@ const NotInOffice = (props) => {
 
     const onClick = (e) => {
         if (!wfh) {
-            console.log(process.env.REACT_APP_OUTLOOK_TOKEN)
             // physical => online
             fetch(CONVERT_ENDPOINT, {
                 method: 'POST', 
