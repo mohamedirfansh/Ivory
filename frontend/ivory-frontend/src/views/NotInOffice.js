@@ -1,13 +1,11 @@
 const { useState } = require("react")
-const { Button, Card, Alert } = require("react-bootstrap")
+const { Button, Alert } = require("react-bootstrap")
 
 const USER_EMAIL = "IvoryGS@outlook.com"
-const CONVERT_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/meetings/tozoom"
+const CONVERT_ZOOM_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/meetings/tozoom"
+const CONVERT_BACK_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/meetings/tophysical"
 
 const MILLISECONDS_PER_DAY = 86400000
-const now = new Date()
-const TIMEZONE_OFFSET_MILLIS = now.getTimezoneOffset() * 60000
-const end_of_today = new Date(Math.ceil((now.valueOf() - TIMEZONE_OFFSET_MILLIS)/MILLISECONDS_PER_DAY)*MILLISECONDS_PER_DAY + TIMEZONE_OFFSET_MILLIS);
 
 const NotInOffice = (props) => {
 
@@ -15,9 +13,14 @@ const NotInOffice = (props) => {
     const [wfh, setWfh] = useState(false);
 
     const onClick = (e) => {
+
+        var now = new Date()
+        var timezone_offset_millis = now.getTimezoneOffset() * 60000
+        var end_of_today = new Date(Math.ceil((now.valueOf() - timezone_offset_millis)/MILLISECONDS_PER_DAY)*MILLISECONDS_PER_DAY + timezone_offset_millis);
+
         if (!wfh) {
             // physical => online
-            fetch(CONVERT_ENDPOINT, {
+            fetch(CONVERT_ZOOM_ENDPOINT, {
                 method: 'POST', 
                 mode: 'cors',
                 headers: {
@@ -35,6 +38,22 @@ const NotInOffice = (props) => {
             });
         } else {
             // meetings that were converted online from before => back to physical
+            fetch(CONVERT_BACK_ENDPOINT, {
+                method: 'POST', 
+                mode: 'cors',
+                headers: {
+                    "Authorization" : "Bearer " + process.env.REACT_APP_OUTLOOK_TOKEN
+                },
+                body: JSON.stringify({
+                    userEmail: USER_EMAIL, 
+                    startTime: now.toISOString().toString(), 
+                    endTime: end_of_today.toISOString().toString()
+                })
+            }).then(res => {
+                console.log(res);
+            }).catch(e => {
+                console.log(e);
+            });
         }
         setWfh(!wfh);
         setAlertShow(true);
