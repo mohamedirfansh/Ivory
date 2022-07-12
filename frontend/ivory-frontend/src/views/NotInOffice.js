@@ -9,8 +9,6 @@ const now = new Date()
 const TIMEZONE_OFFSET_MILLIS = now.getTimezoneOffset() * 60000
 const end_of_today = new Date(Math.ceil((now.valueOf() - TIMEZONE_OFFSET_MILLIS)/MILLISECONDS_PER_DAY)*MILLISECONDS_PER_DAY + TIMEZONE_OFFSET_MILLIS);
 
-const token = "EwCAA8l6BAAUkj1NuJYtTVha+Mogk+HEiPbQo04AAdr2cgb7IyDY4w26VzVEh7LsG9JEDfCCHAY93u7yBJuSE/Rqv/3mUaK+dlSyxCAlW1pJPpRp2b0h1eJ2SrKzZc0YzwrFlgg7Eea2RasYX2pRnG+WBcruv6hXAEoMaDgfBqNoUbQwRuk0Zkwd24cJefzpCWXr2tCINLBBNeAtXNSxk/zlcx+FinAVTaTd6WDXXaem7iz89883ICoQIsTaxKnPy1qo/S7fgTIsFBAUcfl1ceTUq/yHTlJQxBBhkgMmnbtJ8oJbxybABbZipKCfoUQV/oeHUdwIFluZxLGnLZy2UVFzsIHELauEUDaKDauReQtqWfWHh6s8uwKMrw7SCVEDZgAACJOBIvcZWq2BUAKgPbBpyRFiddNW+diEi0fzWyPk0wMppbfkfSB8NvA4Qa77jIt1267z9ZzfAeQsQDL8KlO+NdtdPPe76WDNABPIh3Edb11appAXREAgHQVPkb82HNFndhUYnvHyewLCPWTc/32grXTB16xs2Sj0IWQ4Ug5crggMRzaUINvbH6yUUwuVngChE+AMpRZNdrFA/iiumbxKuka+WaRLjQk26E6BbNz5SP3ARn1ZteqVK798Mhrqlo1OzSzAL2eqdMJ5uXjYgKxcBI/vXpgkNy6+5jLkNOaol5SrRTjNnJmx2NhgXg+sgl+KFX+oEw0TBEX7g3aVELGsK6FyLorkmogsaqo+b6+zgvX/ERutUFUIKgNeF6h7OqfY+E0r1ROSreZIFtwQ2yfAUMPIYzlToeP/cImpRteAJr4LMNgDxXlckuEYmUjZgyWQtUbwax+PQot7t7AjtU0focVRuV6QVBWyLXbFt9UNhq4ICR3NK4N7ZM5X//qxqT9z2y9zVkl9oRuLA+DTUN2XgA14QaJFhed+p5+RqaxANWJ99FTB6Bcd4O2ilwe/HW6nEYKMgzBjKeefxrxkId2dCTQz08aK/BM/eyRd66yk61vP/TWBtaftadttKQBjyKAU6llNX1ijisg1ClWn8YyDBcWO/Mx9S7vtGpaBqIplZiVVONjywwCpjG/gn37lZZ9Md5VsZ2YBosKmbN9bQ2g1ubzd7WuO4QVuuqXlS/OGznQTjyLZGbohGl40s8c1rLsHXF9QgzLuNF5+JKcERroEKH5+1cltDZN+xCEgmgI="
-
 const NotInOffice = (props) => {
     console.log(now.toString())
     console.log(end_of_today.toString());
@@ -25,7 +23,7 @@ const NotInOffice = (props) => {
                 method: 'POST', 
                 mode: 'cors',
                 headers: {
-                    "Authorization" : "Bearer " + token // process.env.REACT_APP_OUTLOOK_TOKEN
+                    "Authorization" : "Bearer " + process.env.REACT_APP_OUTLOOK_TOKEN
                 },
                 body: JSON.stringify({
                     userEmail: USER_EMAIL, 
