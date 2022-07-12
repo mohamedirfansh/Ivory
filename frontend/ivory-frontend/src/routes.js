@@ -16,10 +16,11 @@
 
 */
 import Dashboard from "views/Dashboard.js";
-import Note from "views/Note";
+// import Note from "views/Note";
 import Typography from "views/Typography.js";
 import Icons from "views/Icons.js";
 import DashboardPersonnal from "views/DashboardPersonnal";
+import OfficeState from "views/OfficeState";
 // import Upgrade from "views/Upgrade.js";
 
 const dashboardRoutes = [
@@ -46,12 +47,19 @@ const dashboardRoutes = [
     layout: "/admin"
   },
   {
-    path: "/notes",
-    name: "Notes",
-    icon: "nc-icon nc-notes",
-    component: Note,
+    path: "/office",
+    name: "Office",
+    icon: "nc-icon nc-bag",
+    component: OfficeState,
     layout: "/admin"
   },
+  // {
+  //   path: "/notes",
+  //   name: "Notes",
+  //   icon: "nc-icon nc-notes",
+  //   component: Note,
+  //   layout: "/admin"
+  // },
   // {
   //   path: "/typography",
   //   name: "Typography",
