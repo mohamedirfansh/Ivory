@@ -81,7 +81,7 @@ const EmailCard = (props) => {
                 <tbody>
                 {
                     emailLines.map((emailObj) => {
-                        return (<EmailItem {...emailObj} key={emailObj.id}/>);
+                        return (<EmailItem {...emailObj} key={emailObj.id} readHandle={dateSort}/>);
                     })
                 }
                 </tbody>
