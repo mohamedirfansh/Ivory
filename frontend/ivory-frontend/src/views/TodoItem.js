@@ -43,10 +43,10 @@ const TodoItem = (props) => {
             method: "DELETE", 
             mode: 'cors',
         }).then(response => response.json())
-          .then(results => {
+        .then(results => {
             console.log(results);
             props.refreshHandle();
-          });
+        });
     }
 
     return (

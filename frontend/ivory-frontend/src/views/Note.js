@@ -79,24 +79,26 @@ const Note = (props) => {
     }
 
     const deleteNote = (event) => {
+        event.preventDefault();
         console.log(selectedNote);
         if (selectedNote != null) {
             fetch(NOTES_ENDPOINT + "?" + new URLSearchParams({
-                useremail: USER_EMAIL, 
+                useremail: USER_EMAIL,
                 noteid: selectedNote
             }), {
-                method: "DELETE", 
-                mode: 'cors', 
-                headers: {'Content-Type': 'application/json'}
+                method: "DELETE",
+                mode: 'cors'
+                // headers: {'Content-Type': 'application/json'}
             }).then(response => {
+                console.log(response)
                 if (response.status < 300) {
-                    console.log("deleted");
-                    // success
+                    console.log("deleted successfully");
                     setCurrentNote("");
                     setSelectedNote(null);
                     initNotesList(setAllNotes);
+                    setEditorState(EditorState.createEmpty());
                 }
-              });
+            });
         }
     }
 

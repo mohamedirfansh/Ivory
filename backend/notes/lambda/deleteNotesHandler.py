@@ -11,7 +11,7 @@ def lambda_handler(event, context):
 
     response = s3_client.delete_object(
       Bucket=S3_BUCKET_NAME,
-      Key=f'notes/{user_email}/{note_id}'
+      Key=f'notes/{user_email}/{note_id}.json.json' # if wanna fix this need to fix creation as well
     )
     return {
         'statusCode': 200,
@@ -21,4 +21,5 @@ def lambda_handler(event, context):
             'Access-Control-Allow-Origin': '*',
             'Access-Control-Allow-Methods': 'DELETE,OPTIONS,POST,GET'
         }
+
     }
