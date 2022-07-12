@@ -59,7 +59,7 @@ const TaskCard = (props) => {
                         </Dropdown.Item>
 
                         <Dropdown.Item onClick={handleClick(dateSort)}>
-                            Sort by received time
+                            Sort by due date
                         </Dropdown.Item>
                     </Dropdown.Menu>
 

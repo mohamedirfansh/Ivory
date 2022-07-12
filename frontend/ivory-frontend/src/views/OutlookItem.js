@@ -38,11 +38,7 @@ const OutLookItem = (props) => {
     // }, [setMeeting]);
     
     return (
-        <>
-        {
-            (loading) ? 
-                (<Spinner></Spinner>)
-                : (
+                <>
                 <tr>
                     <td>
                         <Card>
@@ -126,8 +122,7 @@ const OutLookItem = (props) => {
                     </td>
 
                 </tr>
-                )}
-        </>
+                </>
     );
 }
 
