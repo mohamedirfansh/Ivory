@@ -16,9 +16,9 @@ def lambda_handler(event, context):
     response = s3_client.put_object(
         Body=note_body,
         Bucket=S3_BUCKET_NAME,
-        Key=f'notes/{email}/{note_id}.json'
+        Key=f'notes/{email}/{note_id}'
     )
-    
+    print(str(response))
     return {
         'statusCode': 200,
         'headers': {
