@@ -18,7 +18,6 @@ const EmailCard = (props) => {
             mode: 'cors',
             headers: {
                 "Authorization" : 'Bearer ' + process.env.REACT_APP_OUTLOOK_TOKEN
-
             }
         }).then(response => response.json())
           .then(result => {
@@ -32,7 +31,6 @@ const EmailCard = (props) => {
             mode: 'cors',
             headers: {
                 "Authorization" : 'Bearer ' + process.env.REACT_APP_OUTLOOK_TOKEN
-
             }
         }).then(response => response.json())
           .then(result => {
