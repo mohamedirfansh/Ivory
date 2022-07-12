@@ -17,6 +17,7 @@
 */
 import Dashboard from "views/Dashboard.js";
 // import Note from "views/Note";
+import Note from "views/Note";
 import Typography from "views/Typography.js";
 import Icons from "views/Icons.js";
 import DashboardPersonnal from "views/DashboardPersonnal";
