@@ -1,8 +1,72 @@
 @font-face {
     font-family: 'Goldman Sans';
-    src: url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_Rg.woff2), format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    src: local('Goldman Sans'), url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_Rg.woff2) format('woff2');
 }
-// 
+@font-face {
+    font-family: 'Goldman Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Goldman Sans'), url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_It.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Goldman Sans';
+    font-style: normal;
+    font-weight: 200;
+    src: local('Goldman Sans'), url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_Th.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Goldman Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Goldman Sans'), url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_Lt.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Goldman Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Goldman Sans'), url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_Md.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Goldman Sans';
+    font-style: italic;
+    font-weight: 500;
+    src: local('Goldman Sans'), url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_MdIt.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Goldman Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Goldman Sans'), url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_Bd.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Goldman Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Goldman Sans'), url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_BdIt.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Goldman Sans';
+    font-style: normal;
+    font-weight: 900;
+    src: local('Goldman Sans'), url(../../fonts/font_for_websites_WOFF2/GoldmanSans_W_Blk.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Goldman Sans Condensed';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Goldman Sans Condensed'), url(../../fonts/font_for_websites_WOFF2/GoldmanSansCd_W_Rg.woff2) format('woff2');
+}
+@font-face {
+    font-family: 'Goldman Sans Condensed';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Goldman Sans Condensed'), url(../../fonts/font_for_websites_WOFF2/GoldmanSansCd_W_Bd.woff2) format('woff2');
+}
+
+@import url('https://fonts.cdnfonts.com/css/goldman-sans');
+
 /*           Font Smoothing      */
 body,
 h1, .h1, 
@@ -22,7 +86,6 @@ td,
 button.close{
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    // font-family: "Roboto","Helvetica Neue",Arial,sans-serif;
     font-family: 'Goldman Sans', sans-serif;
     font-weight: $font-weight-normal;
 }

@@ -52,6 +52,7 @@ const EmailCard = (props) => {
     }
     
     return (
+        <>
         <Card className="card-events">
             <Card.Header>
                 <Card.Title as="h4">
@@ -94,6 +95,7 @@ const EmailCard = (props) => {
             </div>
         </Card.Footer>
         </Card>
+        </>
     );
 }
 

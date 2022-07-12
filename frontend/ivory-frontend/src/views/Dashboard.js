@@ -14,11 +14,11 @@ function Dashboard() {
     <>
       <Container fluid>
         <Row>
-          <Col xs={6}>
+          <Col xs={5}>
             <OutlookCard/>
           </Col>
 
-          <Col xs={6}>
+          <Col xs={7}>
             <EmailCard/>
           </Col>
 
