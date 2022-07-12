@@ -1,9 +1,8 @@
 import { Form, Button, OverlayTrigger, Tooltip, Card, Badge } from "react-bootstrap";
 
 const JiraItem = (props) => {
+    console.log(props)
     const jiraTicket = props.jiraTicket;
-    const deadline = new Date(props.deadline);
-    const createdOn = new Date(props.deadline);
 
     return (
         <tr>
@@ -12,9 +11,14 @@ const JiraItem = (props) => {
         <Card>
             <Card.Header>
                 <Card.Title>
-                    {jiraTicket.key}
+                    <b>
+                        {jiraTicket.key}
+                    </b>
                 </Card.Title>
             </Card.Header>
+            <Card.Subtitle as={"h6"}>
+                <hr style={{ "margin": "7px", "padding-left": "1em", "padding-right": "1em" }}/>
+            </Card.Subtitle>
             <Card.Body>
                 {jiraTicket.summary}
             </Card.Body>

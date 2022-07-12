@@ -114,9 +114,6 @@ const TodoItem = (props) => {
 
                                 </Col>
                             </Row>
-                        
-
-
                         </Card.Subtitle>
                     </Card.Header>
                     <Card.Body>

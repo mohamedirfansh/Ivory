@@ -1,9 +1,12 @@
+import { USER_EMAIL } from "./constants"
+
 const { useState } = require("react")
 const { Button, Alert } = require("react-bootstrap")
 
-const USER_EMAIL = "IvoryGS@outlook.com"
+const OUTLOOK_USER_EMAIL = "IvoryGS@outlook.com"
 const CONVERT_ZOOM_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/meetings/tozoom"
 const CONVERT_BACK_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/meetings/tophysical"
+const UPDATE_MEETINGS_ENDPOINT = "https://m4cbv166x2.execute-api.ap-southeast-1.amazonaws.com/prod/meetings/cron"
 
 const MILLISECONDS_PER_DAY = 86400000
 
@@ -27,7 +30,7 @@ const NotInOffice = (props) => {
                     "Authorization" : "Bearer " + process.env.REACT_APP_OUTLOOK_TOKEN
                 },
                 body: JSON.stringify({
-                    userEmail: USER_EMAIL, 
+                    userEmail: OUTLOOK_USER_EMAIL, 
                     startTime: now.toISOString().toString(), 
                     endTime: end_of_today.toISOString().toString()
                 })
@@ -45,7 +48,7 @@ const NotInOffice = (props) => {
                     "Authorization" : "Bearer " + process.env.REACT_APP_OUTLOOK_TOKEN
                 },
                 body: JSON.stringify({
-                    userEmail: USER_EMAIL, 
+                    userEmail: OUTLOOK_USER_EMAIL, 
                     startTime: now.toISOString().toString(), 
                     endTime: end_of_today.toISOString().toString()
                 })
@@ -55,6 +58,19 @@ const NotInOffice = (props) => {
                 console.log(e);
             });
         }
+
+        // update meetings in dynamodb dynamically
+        fetch(UPDATE_MEETINGS_ENDPOINT, {
+            headers: {
+                "Authorization": 'Bearer ' + process.env.REACT_APP_OUTLOOK_TOKEN, 
+                "User-Email": USER_EMAIL
+            }
+        }).then(res => {
+            console.log(res);
+        }).catch(e => {
+            console.log(e);
+        });
+
         setWfh(!wfh);
         setAlertShow(true);
     }
