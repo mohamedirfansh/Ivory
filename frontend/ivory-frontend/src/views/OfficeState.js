@@ -7,6 +7,7 @@ import { OfficeByTeams } from 'components/OfficeState/OfficeByTeams';
 function OfficeState() {
   return (
     <>
+      <h4 className="office-title">Office State</h4>
       <Container fluid>
         <Row>
           <Col xs={4}>

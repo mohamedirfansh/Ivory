@@ -46,13 +46,6 @@ const dashboardRoutes = [
     component: DashboardPersonnal,
     layout: "/admin"
   },
-  {
-    path: "/office",
-    name: "Office",
-    icon: "nc-icon nc-bag",
-    component: OfficeState,
-    layout: "/admin"
-  },
   // {
   //   path: "/notes",
   //   name: "Notes",
@@ -60,6 +53,13 @@ const dashboardRoutes = [
   //   component: Note,
   //   layout: "/admin"
   // },
+  {
+    path: "/office",
+    name: "Office",
+    icon: "nc-icon nc-bag",
+    component: OfficeState,
+    layout: "/admin"
+  },
   // {
   //   path: "/typography",
   //   name: "Typography",
