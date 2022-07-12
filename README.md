@@ -1,1 +1,3 @@
-# gs-hackathon-g1
+# Ivory Dashboard
+
+![](/images/ivory-architecture.png)
