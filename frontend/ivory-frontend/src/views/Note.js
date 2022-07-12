@@ -211,6 +211,7 @@ const Note = (props) => {
                             type="button"
                             variant="info"
                             onClick={publishNote}
+                            disabled={!selectedNote}
                         >
                             <i className="fas fa-edit fa-lg"></i>
                         </Button>
@@ -230,6 +231,7 @@ const Note = (props) => {
                             type="button"
                             variant="danger"
                             onClick={deleteNote}
+                            disabled={!selectedNote}
                         >
                             <i className="fas fa-trash fa-lg"></i>
                         </Button>
