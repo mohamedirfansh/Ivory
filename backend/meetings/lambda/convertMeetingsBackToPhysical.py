@@ -31,7 +31,7 @@ class RequestResponseProcessor:
         self._unvalidatedRequest = json.loads(event["body"])
         self._validatedRequest = {}
         self._regex = {
-            "userEmail": r"^[0-9a-zA-Z.-_]{0,256}@[0-9a-zA-Z.-_]{0,256}$", # don't need this if we hardcode the token.. but for zoom & outlook apis
+            "userEmail": r"^[0-9a-zA-Z.-_]{0,256}@[0-9a-zA-Z.-_]{0,256}$",
             "startTime": r"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9]*Z$",
             "endTime": r"^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9]*Z$" 
         }
@@ -49,7 +49,9 @@ class RequestResponseProcessor:
         Main orchestrating function
         '''
         self.validateRequest()
-        self.updateCalendar()
+        self.getConvertedEvents()
+        self.updateEvents()
+        self.removeConvertedEvents()
         return {
             'statusCode': 200,
             'body': json.dumps("Success"),
@@ -68,7 +70,7 @@ class RequestResponseProcessor:
         })
         # ensure unvalidated request contains all required attributes
         if not set(self._requiredAttributes).issubset(set(self._unvalidatedRequest.keys())):
-            log("[ConvertMeetingsToZoom VALIDATION] Failed due to required Attributes not present #1, required: " + \
+            log("[VALIDATION] Failed due to required Attributes not present #1, required: " + \
                     str(self._requiredAttributes) + ", request: " + str(self._unvalidatedRequest), "ERROR")
             raise Exception(errorResponse)
         else:
@@ -81,18 +83,48 @@ class RequestResponseProcessor:
                     if len(match) == 1:
                         self._validatedRequest[key] = value
                     else:
-                        log("[ConvertMeetingsToZoom VALIDATION] Failed due more than 1 match for Attribute: " + str(self._regex[key]) + \
+                        log("[VALIDATION] Failed due more than 1 match for Attribute: " + str(self._regex[key]) + \
                         ", matches = " + str(len(match)), "ERROR")
                         raise Exception(errorResponse)
             else:
-                log("[ConvertMeetingsToZoom VALIDATION] Failed due to required Attributes not present #2, required: " + \
+                log("[VALIDATION] Failed due to required Attributes not present #2, required: " + \
                     str(self._requiredAttributes) + ", request: " + str(self._unvalidatedRequest), "INFO")
                 raise Exception(errorResponse)
-        log("[ConvertMeetingsToZoom VALIDATION] Success" + str(self._validatedRequest), "INFO")
+        log("[VALIDATION] Success" + str(self._validatedRequest), "INFO")
 
-    def updateCalendar(self):
+    def getConvertedEvents(self):
+        try:
+            table = dynamodb.Table(self._tableName)
+
+            response = table.get_item(
+                Key={
+                    "date": datetime.datetime.today().strftime('%d/%m/%Y'),
+                    "userEmail": self._validatedRequest["userEmail"]
+                }
+            )
+            if "Item" in response:
+                self._convertedEventIds = response["Item"]["convertedEventIds"]
+                self._originalLocations = response["Item"]["originalLocations"]
+                log("[GetConvertedEvents] Successfully fetched previously converted meetings.", "INFO")
+            else:
+                log("[GetConvertedEvents] No previously converted meetings.", "INFO", e)
+        
+        except Exception as e:
+            log("[GetConvertedEvents] Failed.", "ERROR", e)
+            raise Exception(json.dumps({
+                    "statusCode": 500,
+                    "message": "Error interacting with DynamoDB",
+                    "headers": HEADERS
+                })
+            )
+
+    def updateEvents(self):
         '''
         Update today's remaining calendar events.
+
+        Events between startTime and endTime are fetched again instead of stored in the database because event times
+        may be updated to a time in the future thus requiring thier locations to be reverted as well. Hence the most
+        updated time data must be pulled.
         '''
         try:
             # get current meeting invites for the given interval, where the current user is the organizer
@@ -101,64 +133,57 @@ class RequestResponseProcessor:
                                 headers = self._outlookHeaders).content.decode("utf-8")
             resObj = json.loads(res)
             if "error" in res:
-                log("[ConvertMeetingsToZoom] Calendar retrieval failed: " + str(resObj), "INFO")
+                log("Calendar retrieval failed: " + str(resObj), "INFO")
                 raise Exception(json.dumps({
                         "statusCode": 500,
                         "message": "Error with callling MS get API: " + str(resObj["error"]["code"]),
                         "headers": HEADERS
                     })
                 )
-            log("[ConvertMeetingsToZoom] Calendar retrieval successful: " + res, "INFO")
+            log("Calendar retrieval successful: " + res, "INFO")
 
             # update physical events to zoom links
             self._outlookHeaders["Content-Type"] = "application/json"
             for event in resObj["value"]:
-                self.convertEventToZoom(event)
+                if (event["id"] in self._convertedEventIds):
+                    idx = self._convertedEventIds.index(event["id"])
+                    self.convertEventBack(idx)
                     
-            self.saveConvertedEvents()
-
-            log("[ConvertMeetingsToZoom] All events in calendar updated successfully.", "INFO")
+            log("All events in calendar updated successfully.", "INFO")
                 
         except Exception as e:
-            log("[ConvertMeetingsToZoom] Failed.", "ERROR", e)
+            log("Fetch all events and conversion back failed.", "ERROR", e)
             raise Exception(json.dumps({
                     "statusCode": 500,
-                    "message": "Error converting meetings to zoom.",
+                    "message": "Error converting meetings back to original location.",
                     "headers": HEADERS
                 })
             )
 
-    def convertEventToZoom(self, event):
-        # we assume the zoom createMeeting api returns this for us
-        meetingDetails = "https://zoom.us/j/5032781184?pwd=Mnl2N1iqcHBtZnEzVUc5ZS9BQVWKUT09"
-
+    def convertEventBack(self, idx):
         try:
-            if (event["isOrganizer"] and not (event["isOnlineMeeting"] or \
-            "zoom" in (event["location"]["displayName"] or event["body"]["content"]))):
-                response = requests.patch(self._patchEventURL.format(id = event["id"]), \
-                                            headers = self._outlookHeaders,
-                                            json = {
-                                                "location": {
-                                                    "displayName": meetingDetails,
-                                                    "uniqueId": meetingDetails
-                                                }
-                                            }).content.decode("utf-8")
-                responseObj = json.loads(response)
-                if "error" in response:
-                    log("[ConvertMeetingsToZoom] Calendar update failed: " + str(responseObj), "INFO")
-                    raise Exception(json.dumps({
-                            "statusCode": 500,
-                            "message": "Error returned from MS patch API: " + str(responseObj["error"]["code"]),
-                            "headers": HEADERS
-                        })
-                    )
+            response = requests.patch(self._patchEventURL.format(id = self._convertedEventIds[idx]), \
+                                        headers = self._outlookHeaders,
+                                        json = {
+                                            "location": {
+                                                "displayName": self._originalLocations[idx],
+                                                "uniqueId": self._originalLocations[idx]
+                                            }
+                                        }).content.decode("utf-8")
+            responseObj = json.loads(response)
+            if "error" in response:
+                log("[ConvertEventsBack] Calendar update failed: " + str(responseObj), "INFO")
+                raise Exception(json.dumps({
+                        "statusCode": 500,
+                        "message": "Error returned from MS patch API: " + str(responseObj["error"]["code"]),
+                        "headers": HEADERS
+                    })
+                )
 
-                self._convertedEventIds.append(event["id"])
-                self._originalLocations.append(event["location"]["displayName"])
-                log("[ConvertMeetingsToZoom] Event update successful for " + event["subject"], "INFO")
+            log("[ConvertEventsBack] Event update successful for event #" + str(idx), "INFO")
 
         except Exception as e:
-            log("[ConvertMeetingsToZoom] Failed.", "ERROR", e)
+            log("[ConvertEventsBack] Event update failed for event #" + str(idx), "ERROR", e)
             raise Exception(json.dumps({
                     "statusCode": 500,
                     "message": "Error with callling MS patch API",
@@ -166,24 +191,9 @@ class RequestResponseProcessor:
                 })
             )
 
-    def saveConvertedEvents(self):
+    def removeConvertedEvents(self):
         try:
-            log("[SaveConvertedMeetings] Starting to save...", "INFO")
             table = dynamodb.Table(self._tableName)
-
-            # append existing entry's ids to current list, if any
-            response = table.get_item(
-                Key={
-                    "date": datetime.datetime.today().strftime('%d/%m/%Y'),
-                    "userEmail": self._validatedRequest["userEmail"]
-                }
-            )
-            if "Item" in response:
-                self._convertedEventIds.extend(response["Item"]["convertedEventIds"])
-                self._originalLocations.extend(response["Item"]["originalLocations"])
-                log("[SaveConvertedMeetings] Successfully added previous converted meetings.", "INFO")
-            else:
-                log("[SaveConvertedMeetings] No previous converted meetings to be added.", "INFO")
 
             # delete existing entry, if any
             table.delete_item(
@@ -192,22 +202,10 @@ class RequestResponseProcessor:
                     "userEmail": self._validatedRequest["userEmail"]
                 }
             )
-            log("[SaveConvertedMeetings] Deleted previous converted meetings data in the db.", "INFO")
-
-            payload = {
-                "date": datetime.datetime.today().strftime('%d/%m/%Y'),
-                "userEmail": self._validatedRequest["userEmail"],
-                "convertedEventIds": self._convertedEventIds,
-                "originalLocations": self._originalLocations
-            }
-            response = table.put_item(
-                Item=payload
-            )
-
-            log("[SaveConvertedMeetings] Successfully saved converted meetings for user into db.", "INFO")
+            log("[RemoveConvertedEvents] Deleted all converted events data in the db.", "INFO")
 
         except Exception as e:
-            log("[SaveConvertedMeetings] Failed.", "ERROR", e)
+            log("[RemoveConvertedEvents] Failed.", "ERROR", e)
             raise Exception(json.dumps({
                     "statusCode": 500,
                     "message": "Error interacting with DynamoDB",
