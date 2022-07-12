@@ -42,19 +42,19 @@ const NotInOffice = (props) => {
 
     return (
         <div style={{paddingBottom: "3em", paddingLeft: "1em", paddingRight: "1em"}}>
+            <Alert variant="primary" show={alertShow} onClose={() => setAlertShow(false)} dismissible style={{marginTop: "1em"}}>
+                <p style={{paddingTop: "5px", fontSize: "98%"}}>
+                    { wfh ? "Meetings Converted to Virtual!" : "Meetings Converted Back!"}
+                </p>
+            </Alert>
             <h6 style={{textAlign: "center", color: "#fff"}}>
                 {"Today I'm Working " +
                     (wfh ? "From Home" : "In Office")}
             </h6>
-            <div className="d-grid" style={{}}>
+            <div className="d-grid">
                 <Button style={{"width": "100%", color: "#fff", fontSize: "77%"}} variant={ "light" } onClick={onClick}>
                     {wfh ? "Come to Office" : "Work from Home"}
                 </Button>
-                <Alert variant="primary" show={alertShow} onClose={() => setAlertShow(false)} dismissible style={{marginTop: "1em"}}>
-                    <p style={{paddingTop: "5px", fontSize: "98%"}}>
-                        { wfh ? "Meetings Converted to Virtual!" : "Meetings Converted Back!"}
-                    </p>
-                </Alert>
             </div>
         </div>
     )
