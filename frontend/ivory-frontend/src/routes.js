@@ -53,13 +53,13 @@ const dashboardRoutes = [
     component: OfficeState,
     layout: "/admin"
   },
-  // {
-  //   path: "/notes",
-  //   name: "Notes",
-  //   icon: "nc-icon nc-notes",
-  //   component: Note,
-  //   layout: "/admin"
-  // },
+  {
+    path: "/notes",
+    name: "Notes",
+    icon: "nc-icon nc-notes",
+    component: Note,
+    layout: "/admin"
+  },
   // {
   //   path: "/typography",
   //   name: "Typography",
