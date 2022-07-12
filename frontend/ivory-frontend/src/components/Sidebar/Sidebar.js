@@ -31,7 +31,7 @@ function Sidebar({ color, image, routes }) {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
   };
   return (
-    <div className="sidebar" style={{ "width": "15%", "display": "flex", padding: 0, margin: 0}} data-image={image} data-color={color}>
+    <div className="sidebar" style={{ "width": "15%", "display": "flex", padding: 0, margin: 0, "backgroundColor": "#0D4EA6"}} data-image={image} data-color={color}>
       <div
         className="sidebar-background"
         style={{
@@ -87,7 +87,7 @@ function Sidebar({ color, image, routes }) {
           style={{
             fontSize: 12
           }}>
-          <a target="_blank" href="https://icons8.com/icon/j27nHMUQL9v7/notes">Notes</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+          {/* <a target="_blank" href="https://icons8.com/icon/j27nHMUQL9v7/notes">Notes</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> */}
         </CardFooter>
         </div>
       </div>
