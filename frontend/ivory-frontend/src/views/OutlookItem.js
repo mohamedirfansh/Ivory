@@ -6,8 +6,9 @@ import OutlookEvent from "./OutlookEvent";
 
 const OutLookItem = (props) => {
     console.log(props);
-    const start_time = new Date(props.Start.S);
-    const end_time = new Date(props.End.S);
+    const tzoffset = (new Date()).getTimezoneOffset() * 60000;
+    const start_time = new Date(new Date(props.Start.S).valueOf() - tzoffset);
+    const end_time = new Date(new Date(props.End.S).valueOf - tzoffset);
 
     // console.log(outlookItemProp);
     // const outlookItem = JSON.parse(outlookItemProp);
